@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Mail, ExternalLink, Image as ImageIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const GithubIcon = ({ size = 24 }) => (
   <svg 
@@ -18,8 +18,38 @@ const GithubIcon = ({ size = 24 }) => (
   </svg>
 );
 
+// Graphic Design Categories & Data
+const graphicCategories = [
+  { id: 'pubmats', label: 'Pubmats & Events' },
+  { id: 'logos', label: 'Logos & Identity' },
+  { id: 'apparel', label: 'Apparel & Stickers' },
+  { id: 'personal', label: 'Personal Art' }
+];
+
+const graphicData = {
+  pubmats: [
+    { id: 1, title: 'IKIGAI Summit Visuals', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
+    { id: 2, title: 'Foundation Week Teasers', span: 'col-span-1 aspect-square' },
+    { id: 3, title: 'Event Registration Layouts', span: 'col-span-1 aspect-square' },
+  ],
+  logos: [
+    { id: 4, title: 'Official Event Logo', span: 'col-span-1 aspect-square' },
+    { id: 5, title: 'Organization Badge', span: 'col-span-1 aspect-square' },
+    { id: 6, title: 'Sticker Vectors', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
+  ],
+  apparel: [
+    { id: 7, title: 'Department Polo Shirts', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
+    { id: 8, title: 'Color Run T-Shirts', span: 'col-span-1 aspect-square' },
+  ],
+  personal: [
+    { id: 9, title: 'Minimalist Earthy Concept', span: 'col-span-1 aspect-square' },
+    { id: 10, title: 'Anime-Inspired Palettes', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
+  ]
+};
+
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [activeTab, setActiveTab] = useState('pubmats');
 
   // Toggle Dark Mode
   useEffect(() => {
@@ -34,14 +64,6 @@ const App = () => {
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
   };
 
   return (
@@ -73,41 +95,66 @@ const App = () => {
             Designing visuals. <br /> Coding logic.
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-            I'm an incoming 4th-year IT student bridging the gap between aesthetic graphic design and highly functional programming. I build systems that work and design interfaces that captivate.
+            I'm Loydi Saquilon, an incoming 4th-year BSIT student bridging the gap between aesthetic graphic design and highly functional programming. I build systems that work and design interfaces that captivate.
           </p>
           <div className="flex gap-4">
-            <a href="#contact" className="bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-none font-bold hover:scale-105 transition-transform">
+            <a href="#contact" className="bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-black/10 dark:shadow-white/10">
               Let's Talk
             </a>
-            <a href="/resume.pdf" className="border border-black dark:border-white px-6 py-3 rounded-none font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+            <a href="/resume.pdf" className="border border-black dark:border-white px-6 py-3 rounded-xl font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
               View Resume
             </a>
           </div>
         </motion.div>
       </section>
 
-      {/* GRAPHIC DESIGN SECTION */}
+      {/* GRAPHIC DESIGN SECTION (Now with Tabs & Smooth Layouts) */}
       <section id="design" className="py-20 px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-          <h2 className="text-3xl font-bold mb-10 tracking-tight">Graphic Design Showcase</h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <h2 className="text-3xl font-bold tracking-tight">Graphic Design Showcase</h2>
+            
+            {/* Category Filter Tabs */}
+            <div className="flex flex-wrap gap-2">
+              {graphicCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveTab(cat.id)}
+                  className={`px-4 py-2 text-sm font-bold rounded-xl transition-all duration-300 ${
+                    activeTab === cat.id 
+                      ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' 
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          </div>
           
-          {/* Aesthetic Bento-Box Layout */}
-          <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <motion.div 
-                key={item}
-                variants={fadeInUp}
-                whileHover={{ scale: 0.98, opacity: 0.8 }}
-                className={`relative group bg-gray-100 dark:bg-gray-900 overflow-hidden cursor-pointer flex items-center justify-center ${item === 1 || item === 4 ? 'md:col-span-2 aspect-[2/1]' : 'aspect-square'}`}
-              >
-                <ImageIcon size={48} className="text-gray-300 dark:text-gray-700" />
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white font-bold tracking-wider">Project 0{item}</span>
-                </div>
-              </motion.div>
-            ))}
+          {/* Animated Grid Layout */}
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <AnimatePresence mode='popLayout'>
+              {graphicData[activeTab].map((item) => (
+                <motion.div 
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 0.98 }}
+                  className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center ${item.span}`}
+                >
+                  <ImageIcon size={48} className="text-gray-300 dark:text-gray-700" />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                    <span className="text-white font-bold tracking-wider">{item.title}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </motion.div>
         </motion.div>
       </section>
@@ -119,21 +166,30 @@ const App = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { title: 'Inventory Management App', stack: 'React, Node.js, PostgreSQL' },
-              { title: 'Student Portal Dashboard', stack: 'Vue, Firebase, Tailwind' }
+              { 
+                title: 'RAG-Powered Institutional Knowledge System', 
+                stack: 'FastAPI, Supabase, React',
+                desc: 'An AI-driven platform built for quality assurance and academic governance.'
+              },
+              { 
+                title: 'IoT Fire and Gas Leakage Warning System', 
+                stack: 'Arduino, MQ-2, DHT22',
+                desc: 'A hardware/software safety solution designed for campus laboratory environments.' 
+              }
             ].map((project, idx) => (
               <motion.div 
                 key={idx} 
                 whileHover={{ y: -5 }}
-                className="border border-gray-200 dark:border-gray-800 p-8 hover:border-black dark:hover:border-white transition-colors"
+                className="border border-gray-200 dark:border-gray-800 p-8 rounded-2xl hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-black shadow-sm hover:shadow-xl dark:shadow-none"
               >
-                <div className="h-48 bg-gray-100 dark:bg-gray-900 mb-6 flex items-center justify-center">
+                <div className="h-48 bg-gray-100 dark:bg-gray-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
                   <span className="text-gray-400 text-sm">App Screenshot Placeholder</span>
                 </div>
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-sm text-gray-500 mb-6 font-mono">{project.stack}</p>
+                <p className="text-sm text-gray-500 mb-4 font-mono">{project.stack}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">{project.desc}</p>
                 <a href="#" className="inline-flex items-center gap-2 font-bold text-sm hover:underline">
-                  View Repository <ExternalLink size={16} />
+                  View Details <ExternalLink size={16} />
                 </a>
               </motion.div>
             ))}
@@ -146,13 +202,13 @@ const App = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <h2 className="text-4xl font-bold mb-6">Let's build something together.</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            Whether it's a sleek brand identity or a complex full-stack web application, I'm currently open for freelance opportunities and internships.
+            Whether it's a sleek brand identity, engaging pubmats, or a complex full-stack web application, I'm currently open for freelance opportunities and collaborations.
           </p>
           <div className="flex justify-center gap-6">
-            <a href="mailto:your@email.com" className="p-4 border border-gray-200 dark:border-gray-800 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+            <a href="mailto:loyddsaquilon@gmail.com" className="p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:scale-110 shadow-sm">
               <Mail size={24} />
             </a>
-            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="p-4 border border-gray-200 dark:border-gray-800 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+            <a href="https://github.com/loydskie11" target="_blank" rel="noreferrer" className="p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:scale-110 shadow-sm">
               <GithubIcon size={24} />
             </a>
           </div>
@@ -161,7 +217,7 @@ const App = () => {
 
       {/* FOOTER */}
       <footer className="py-8 text-center text-sm text-gray-500 border-t border-gray-200 dark:border-gray-800">
-        <p>© {new Date().getFullYear()} flaminghotsisig. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Jhon Lyod L. Saquilon (flaminghotsisig). All rights reserved.</p>
       </footer>
 
     </div>
