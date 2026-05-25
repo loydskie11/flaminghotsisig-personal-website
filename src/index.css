@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Manual dark mode toggle for v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Your custom portfolio theme */
+@theme {
+  --font-sans: 'Arial', 'Tahoma', 'sans-serif';
+  --color-black: #0a0a0a;
+  --color-white: #f5f5f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
