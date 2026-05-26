@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Mail, ExternalLink, Image as ImageIcon, Menu, X } from 'lucide-react';
+import { Moon, Sun, Mail, ExternalLink, Image as ImageIcon, Menu, X, Volume2, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Analytics } from "@vercel/analytics/react"
 
@@ -105,15 +105,35 @@ const graphicData = {
     { 
       id: 30, 
       title: 'aespa Karina, boyfriend', 
-      span: 'col-span-1 aspect-[square]', 
-      // Use 'video/upload' instead of 'image/upload' for Cloudinary video links!
-      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/v1779801721/karina-boyfriend_vhzhto.mp4' 
+      span: 'col-span-1 aspect-[1/1]', 
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/v1779801721/karina-boyfriend_vhzhto.mp4',
+      hasAudio: true 
     },
     { 
       id: 31, 
-      title: 'Rex County, Bestfriend', 
+      title: 'Rex County, The Shade', 
       span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
-      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/v1779801854/rexcounty_bi9kbz.mp4' 
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/v1779801854/rexcounty_bi9kbz.mp4',
+      hasAudio: true
+    },
+    { 
+      id: 32, 
+      title: 'aespa Karina, Kasih Aba Aba', 
+      span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779803505/kaurasakan_gp7gv5.mp4',
+      hasAudio: true
+    },
+    { 
+      id: 33, 
+      title: 'CTUAC SSG Logo Animation', 
+      span: 'col-span-1 aspect-[1/1]', 
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779803654/ssg_voek5j.mp4'
+    },
+    { 
+      id: 34, 
+      title: 'Argao Youth Convergence 26 Standby', 
+      span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779803934/convergence_gz3b11.mp4'
     },
   ],
   personal: [
@@ -195,6 +215,7 @@ const graphicData = {
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState('pubmats');
+  const [activeAudioId, setActiveAudioId] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Toggle Dark Mode
@@ -351,14 +372,32 @@ const App = () => {
                   className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 ${item.span}`}
                 >
                   {item.video ? (
-                    <video 
-                      src={item.video}
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
-                    />
+                    <>
+                      <video 
+                        src={item.video}
+                        autoPlay 
+                        loop 
+                        // If this video is the active one, un-mute it. Otherwise, force mute.
+                        muted={activeAudioId !== item.id} 
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+                      />
+                      
+                      {/* Minimalist Audio Toggle Button (Only shows if hasAudio is true) */}
+                      {item.hasAudio && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation(); // Prevents the click from triggering anything else
+                            // If clicking the currently unmuted video, mute it. Otherwise, unmute this one (and mute the rest).
+                            setActiveAudioId(activeAudioId === item.id ? null : item.id);
+                          }}
+                          className="absolute top-4 right-4 z-30 p-2 bg-black/40 hover:bg-black/70 text-white rounded-full backdrop-blur-md transition-all border border-white/10 shadow-lg cursor-pointer"
+                          aria-label="Toggle audio"
+                        >
+                          {activeAudioId === item.id ? <Volume2 size={16} /> : <VolumeX size={16} />}
+                        </button>
+                      )}
+                    </>
                   ) : item.image ? (
                     <img 
                       src={item.image} 
