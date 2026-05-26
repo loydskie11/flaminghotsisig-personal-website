@@ -389,28 +389,41 @@ const App = () => {
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3 }}
                   className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 ${item.span}`}
+                  
+                  // --- NEW: HOVER TO PLAY LOGIC ---
+                  onMouseEnter={(e) => {
+                    const video = e.currentTarget.querySelector('video');
+                    // We only play if a video exists in this card
+                    if (video) video.play(); 
+                  }}
+                  onMouseLeave={(e) => {
+                    const video = e.currentTarget.querySelector('video');
+                    if (video) video.pause();
+                  }}
                 >
+                  
+                  {/* CONDITIONAL RENDERING: Video vs Image */}
                   {item.video ? (
                     <>
                       <video 
                         src={item.video}
-                        autoPlay 
+                        // autoPlay has been removed!
                         loop 
-                        // If this video is the active one, un-mute it. Otherwise, force mute.
                         muted={activeAudioId !== item.id} 
                         playsInline
+                        // Cloudinary magic: Converts the mp4 URL into a jpg thumbnail instantly
+                        poster={item.video.replace('.mp4', '.jpg')}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
                       />
                       
-                      {/* Minimalist Audio Toggle Button (Only shows if hasAudio is true) */}
+                      {/* Minimalist Audio Toggle Button */}
                       {item.hasAudio && (
                         <button
                           onClick={(e) => {
-                            e.stopPropagation(); // Prevents the click from triggering anything else
-                            // If clicking the currently unmuted video, mute it. Otherwise, unmute this one (and mute the rest).
+                            e.stopPropagation(); 
                             setActiveAudioId(activeAudioId === item.id ? null : item.id);
                           }}
-                          className="absolute top-4 right-4 z-30 p-2 bg-black/40 hover:bg-black/70 text-white rounded-full backdrop-blur-md transition-all border border-white/10 shadow-lg cursor-pointer"
+                          className="absolute top-4 right-4 z-30 p-2 bg-black/40 hover:bg-black/70 text-white rounded-full backdrop-blur-md transition-all border border-white/10 shadow-lg cursor-pointer opacity-0 group-hover:opacity-100"
                           aria-label="Toggle audio"
                         >
                           {activeAudioId === item.id ? <Volume2 size={16} /> : <VolumeX size={16} />}
@@ -427,7 +440,7 @@ const App = () => {
                     <ImageIcon size={48} className="text-gray-300 dark:text-gray-700 transition-transform duration-700 group-hover:scale-110" />
                   )}
                                       
-                  {/* Hover Title Overlay - Bottom Slide Up */}
+                  {/* Hover Title Overlay */}
                   <div className="absolute bottom-0 left-0 w-full pt-16 pb-4 px-5 bg-gradient-to-t from-black/90 via-black/50 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20 pointer-events-none">
                     <span className="text-white font-bold tracking-wider text-sm sm:text-base drop-shadow-md">
                       {item.title}
