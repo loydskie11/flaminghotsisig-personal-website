@@ -155,7 +155,7 @@ const App = () => {
             Designing visuals. <br /> Coding logic.
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-            I'm Loydi Saquilon, an incoming 4th-year BSIT student bridging the gap between aesthetic graphic design and highly functional programming. I build systems that work and design interfaces that captivate.
+            I'm Jhon Lyod L. Saquilon, an incoming 4th-year BSIT student bridging the gap between aesthetic graphic design and highly functional programming. I build systems that work and design interfaces that captivate.
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#contact" className="bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-black/10 dark:shadow-white/10 text-sm sm:text-base text-center flex-1 sm:flex-none">
