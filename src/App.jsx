@@ -89,10 +89,85 @@ const graphicData = {
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779775082/ssg-v1-25-26_z0udbf.png'
     },
+    { id: 17, 
+      title: 'CTUAC BIT Uniform 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779784937/bit-25-26_wdcuwj.png'
+    },
   ],
   personal: [
-    { id: 9, title: 'Minimalist Earthy Concept', span: 'col-span-1 aspect-square' },
-    { id: 10, title: 'Anime-Inspired Palettes', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
+    { 
+      id: 9, 
+      title: 'The Thinker', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791678/thinker_vd0ftq.png'
+    },
+    { 
+      id: 10, 
+      title: 'Wings', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791682/wings_rcjsib.png'
+    },
+    { 
+      id: 11, 
+      title: 'Carlos Sainz Jr.', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791733/sainz_z6mijx.png'
+    },
+    { 
+      id: 12, 
+      title: 'aespa Winter', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791747/winterae_prmyl7.png'
+    },
+    { 
+      id: 13, 
+      title: 'aespa Karina', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792111/karinaae_lkiw2m.png'
+    },
+    { 
+      id: 14, 
+      title: 'F40 Ferrari', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792059/ef40_s1iyt4.png'
+    },
+    { 
+      id: 15, 
+      title: 'Just Do Air', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792059/jordan_bns6iu.png'
+    },
+    { 
+      id: 16, 
+      title: 'Daniel Caesar, Freudian', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792082/daniel_bdzfg4.png'
+    },
+    { 
+      id: 17, 
+      title: 'Helcurt, Flow', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792081/hcflow_blzdwz.png'
+    },
+    { 
+      id: 18, 
+      title: 'CMIYGL', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792066/cmiygl_pwbjrl.png'
+    },
+    { 
+      id: 19, 
+      title: 'Isang Anghel', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792045/anghel_qjq1fj.jpg'
+    },
+    { 
+      id: 20, 
+      title: 'All The Stars', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792071/panther_ioxwkx.jpg'
+    },
   ]
 };
 
@@ -229,7 +304,7 @@ const App = () => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
-                  className={`px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 flex-1 sm:flex-none whitespace-nowrap ${
+                  className={`px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 flex-1 sm:flex-none whitespace-nowrap cursor-pointer ${
                     activeTab === cat.id 
                       ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' 
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800'
