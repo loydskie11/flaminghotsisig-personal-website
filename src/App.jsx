@@ -97,73 +97,73 @@ const graphicData = {
   ],
   personal: [
     { 
-      id: 9, 
+      id: 18, 
       title: 'The Thinker', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791678/thinker_vd0ftq.png'
     },
     { 
-      id: 10, 
+      id: 19, 
       title: 'Wings', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791682/wings_rcjsib.png'
     },
     { 
-      id: 11, 
+      id: 20, 
       title: 'Carlos Sainz Jr.', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791733/sainz_z6mijx.png'
     },
     { 
-      id: 12, 
+      id: 21, 
       title: 'aespa Winter', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791747/winterae_prmyl7.png'
     },
     { 
-      id: 13, 
+      id: 22, 
       title: 'aespa Karina', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792111/karinaae_lkiw2m.png'
     },
     { 
-      id: 14, 
+      id: 23, 
       title: 'F40 Ferrari', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792059/ef40_s1iyt4.png'
     },
     { 
-      id: 15, 
+      id: 24, 
       title: 'Just Do Air', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792059/jordan_bns6iu.png'
     },
     { 
-      id: 16, 
+      id: 25, 
       title: 'Daniel Caesar, Freudian', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792082/daniel_bdzfg4.png'
     },
     { 
-      id: 17, 
+      id: 26, 
       title: 'Helcurt, Flow', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792081/hcflow_blzdwz.png'
     },
     { 
-      id: 18, 
+      id: 27, 
       title: 'CMIYGL', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792066/cmiygl_pwbjrl.png'
     },
     { 
-      id: 19, 
+      id: 28, 
       title: 'Isang Anghel', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792045/anghel_qjq1fj.jpg'
     },
     { 
-      id: 20, 
+      id: 29, 
       title: 'All The Stars', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792071/panther_ioxwkx.jpg'
