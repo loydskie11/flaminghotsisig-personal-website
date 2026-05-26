@@ -42,22 +42,52 @@ const graphicData = {
     { id: 7, 
       title: 'CTUAC Animal Science Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
-      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779766109/sample4_e96uiv.jpg'
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v1779766109/sample4_e96uiv.jpg'
     },
     { id: 8, 
       title: 'CTUAC FSS Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
-      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779767398/6_pwyfai.jpg'
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779774738/fss-25-26_wcpbtd.png'
     },
     { id: 9, 
       title: 'CTUAC SSG v2 Uniform 26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
-      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779767438/draft5_fyemh2.png'
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v1779767438/draft5_fyemh2.png'
     },
     { id: 10, 
       title: 'CTUAC Chorale Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
-      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779771948/chorale_yze0gn.png'
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v1779771948/chorale_yze0gn.png'
+    },
+    { id: 11, 
+      title: 'CTUAC BSIT OJT Uniform 26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v1779773687/bsit-ojt-26_wfh9kp.png'
+    },
+    { id: 12, 
+      title: 'CTUAC FSTLP Uniform 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779773750/fstlp-25_tmw736.png'
+    },
+    { id: 13, 
+      title: 'CTUAC Horticulture Uniform 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779774384/shirt_sample_2.1_kxi9zt.png'
+    },
+    { id: 14, 
+      title: 'CTU FSG Uniform 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779774598/fsg-25-26_h9nbsa.png'
+    },
+    { id: 15, 
+      title: 'CTUAC SSG D1 Uniform 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779775097/ssg-d1_zosd4d.png'
+    },
+    { id: 16, 
+      title: 'CTUAC SSG Uniform 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779775082/ssg-v1-25-26_z0udbf.png'
     },
   ],
   personal: [
