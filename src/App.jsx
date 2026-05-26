@@ -29,6 +29,7 @@ const graphicCategories = [
   { id: 'pubmats', label: 'Pubmats & Events' },
   { id: 'logos', label: 'Logos & Identity' },
   { id: 'apparel', label: 'Apparel & Stickers' },
+  { id: 'motion', label: 'Motion Graphics' },
   { id: 'personal', label: 'Personal Art' }
 ];
 
@@ -98,6 +99,21 @@ const graphicData = {
       title: 'CTUAC BIT Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779784937/bit-25-26_wdcuwj.png'
+    },
+  ],
+  motion: [
+    { 
+      id: 30, 
+      title: 'aespa Karina, boyfriend', 
+      span: 'col-span-1 aspect-[square]', 
+      // Use 'video/upload' instead of 'image/upload' for Cloudinary video links!
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/v1779801721/karina-boyfriend_vhzhto.mp4' 
+    },
+    { 
+      id: 31, 
+      title: 'Rex County, Bestfriend', 
+      span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/v1779801854/rexcounty_bi9kbz.mp4' 
     },
   ],
   personal: [
@@ -334,7 +350,16 @@ const App = () => {
                   transition={{ duration: 0.3 }}
                   className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 ${item.span}`}
                 >
-                  {item.image ? (
+                  {item.video ? (
+                    <video 
+                      src={item.video}
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+                    />
+                  ) : item.image ? (
                     <img 
                       src={item.image} 
                       alt={item.title} 
