@@ -413,6 +413,9 @@ const App = () => {
         <p>© {new Date().getFullYear()} Jhon Lyod L. Saquilon (flaminghotsisig). All rights reserved.</p>
       </footer>
 
+      {/* VERCEL ANALYTICS */}
+      <Analytics />
+
     </div>
   );
 };
