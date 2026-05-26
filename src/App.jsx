@@ -38,8 +38,21 @@ const graphicData = {
     { id: 6, title: 'Sticker Vectors', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
   ],
   apparel: [
-    { id: 7, title: 'Department Polo Shirts', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
-    { id: 8, title: 'Color Run T-Shirts', span: 'col-span-1 aspect-square' },
+    { id: 7, 
+      title: 'Department Polo Shirt', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779766109/sample4_e96uiv.jpg'
+    },
+    { id: 8, 
+      title: 'Department Polo Shirt', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779767398/6_pwyfai.jpg'
+    },
+    { id: 9, 
+      title: 'Department Polo Shirt', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779767438/draft5_fyemh2.png'
+    },
   ],
   personal: [
     { id: 9, title: 'Minimalist Earthy Concept', span: 'col-span-1 aspect-square' },
@@ -155,7 +168,7 @@ const App = () => {
             Designing visuals. <br /> Coding logic.
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-            I'm Jhon Lyod L. Saquilon, an incoming 4th-year BSIT student bridging the gap between aesthetic graphic design and highly functional programming. I build systems that work and design interfaces that captivate.
+            I'm Loydi Saquilon, an incoming 4th-year BSIT student bridging the gap between aesthetic graphic design and highly functional programming. I build systems that work and design interfaces that captivate.
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#contact" className="bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-black/10 dark:shadow-white/10 text-sm sm:text-base text-center flex-1 sm:flex-none">
@@ -203,14 +216,23 @@ const App = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3 }}
-                  whileHover={{ scale: 0.98 }}
-                  className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center ${item.span}`}
+                  className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 ${item.span}`}
                 >
-                  <ImageIcon size={48} className="text-gray-300 dark:text-gray-700" />
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm p-4 text-center">
-                    <span className="text-white font-bold tracking-wider text-sm sm:text-base">{item.title}</span>
+                  {item.image ? (
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  ) : (
+                    <ImageIcon size={48} className="text-gray-300 dark:text-gray-700 transition-transform duration-700 group-hover:scale-110" />
+                  )}
+                                      
+                  {/* Hover Title Overlay - Bottom Slide Up */}
+                  <div className="absolute bottom-0 left-0 w-full pt-16 pb-4 px-5 bg-gradient-to-t from-black/90 via-black/50 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20 pointer-events-none">
+                    <span className="text-white font-bold tracking-wider text-sm sm:text-base drop-shadow-md">
+                      {item.title}
+                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -277,7 +299,7 @@ const App = () => {
 
       {/* FOOTER */}
       <footer className="py-8 px-4 text-center text-xs sm:text-sm text-gray-500 border-t border-gray-200 dark:border-gray-800">
-        <p>© {new Date().getFullYear()} Jhon Lyod L. Saquilon (flaminghotsisig). All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Loydi Saquilon (flaminghotsisig). All rights reserved.</p>
       </footer>
 
     </div>
