@@ -212,6 +212,25 @@ const graphicData = {
   ]
 };
 
+const projectData = [
+  { 
+    id: 1,
+    title: 'RAG-Powered Institutional Knowledge System', 
+    stack: 'FastAPI, Supabase, React',
+    desc: 'An AI-driven platform built for quality assurance and academic governance.',
+    image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779804765/Screenshot_2026-05-13_225639_cqmgpd.png',
+    link: 'https://github.com/durf-nvn/rag-governance'
+  },
+  { 
+    id: 2,
+    title: 'IoT Fire and Gas Leakage Warning System', 
+    stack: 'Arduino, MQ-2, DHT22',
+    desc: 'A hardware/software safety solution designed for campus laboratory environments.',
+    image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v12345/your_iot_screenshot.jpg',
+    link: 'https://github.com/loydskie11/rag-system'
+  }
+];
+
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState('pubmats');
@@ -427,32 +446,40 @@ const App = () => {
           <h2 className="text-3xl sm:text-4xl font-bold mb-10 tracking-tight">Technical Projects</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {[
-              { 
-                title: 'RAG-Powered Institutional Knowledge System', 
-                stack: 'FastAPI, Supabase, React',
-                desc: 'An AI-driven platform built for quality assurance and academic governance.'
-              },
-              { 
-                title: 'IoT Fire and Gas Leakage Warning System', 
-                stack: 'Arduino, MQ-2, DHT22',
-                desc: 'A hardware/software safety solution designed for campus laboratory environments.' 
-              }
-            ].map((project, idx) => (
+            {projectData.map((project) => (
               <motion.div 
-                key={idx} 
+                key={project.id} 
                 whileHover={{ y: -5 }}
-                className="border border-gray-200 dark:border-gray-800 p-6 sm:p-8 rounded-2xl hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-black shadow-sm hover:shadow-xl dark:shadow-none flex flex-col h-full"
+                // Added "group" class here to link hover effects to the image inside
+                className="group border border-gray-200 dark:border-gray-800 p-6 sm:p-8 rounded-2xl hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-black shadow-sm hover:shadow-xl dark:shadow-none flex flex-col h-full cursor-pointer"
               >
-                <div className="h-40 sm:h-48 bg-gray-100 dark:bg-gray-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden shrink-0">
-                  <span className="text-gray-400 text-xs sm:text-sm">App Screenshot Placeholder</span>
+                <div className="relative h-40 sm:h-48 bg-gray-100 dark:bg-gray-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden shrink-0">
+                  
+                  {/* CONDITIONAL RENDERING: Shows Image if URL exists, otherwise shows placeholder */}
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={`${project.title} screenshot`}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <span className="text-gray-400 text-xs sm:text-sm">App Screenshot Placeholder</span>
+                  )}
+                  
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-500 mb-4 font-mono">{project.stack}</p>
                 <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm flex-grow">{project.desc}</p>
-                <a href="#" className="inline-flex items-center gap-2 font-bold text-sm hover:underline mt-auto">
-                  View Details <ExternalLink size={16} />
-                </a>
+                {project.link && (
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="inline-flex items-center gap-2 font-bold text-sm hover:underline mt-auto hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                  >
+                    View Details <ExternalLink size={16} />
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>
