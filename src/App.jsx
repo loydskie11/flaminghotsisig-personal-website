@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Mail, ExternalLink, Image as ImageIcon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const GithubIcon = ({ size = 24 }) => (
   <svg 
@@ -40,19 +40,24 @@ const graphicData = {
   ],
   apparel: [
     { id: 7, 
-      title: 'Department Polo Shirt', 
+      title: 'CTUAC Animal Science Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779766109/sample4_e96uiv.jpg'
     },
     { id: 8, 
-      title: 'Department Polo Shirt', 
+      title: 'CTUAC FSS Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779767398/6_pwyfai.jpg'
     },
     { id: 9, 
-      title: 'Department Polo Shirt', 
+      title: 'CTUAC SSG v2 Uniform 26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779767438/draft5_fyemh2.png'
+    },
+    { id: 10, 
+      title: 'CTUAC Chorale Uniform 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779771948/chorale_yze0gn.png'
     },
   ],
   personal: [
@@ -169,7 +174,7 @@ const App = () => {
             Designing visuals. <br /> Coding logic.
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-            I'm Loydi Saquilon, an incoming 4th-year BSIT student bridging the gap between aesthetic graphic design and highly functional programming. I build systems that work and design interfaces that captivate.
+            I'm Jhon Lyod L. Saquilon, an incoming 4th-year BSIT student bridging the gap between aesthetic graphic design and highly functional programming. I build systems that work and design interfaces that captivate.
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="#contact" className="bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-black/10 dark:shadow-white/10 text-sm sm:text-base text-center flex-1 sm:flex-none">
@@ -300,7 +305,7 @@ const App = () => {
 
       {/* FOOTER */}
       <footer className="py-8 px-4 text-center text-xs sm:text-sm text-gray-500 border-t border-gray-200 dark:border-gray-800">
-        <p>© {new Date().getFullYear()} Loydi Saquilon (flaminghotsisig). All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Jhon Lyod L. Saquilon (flaminghotsisig). All rights reserved.</p>
       </footer>
 
     </div>
