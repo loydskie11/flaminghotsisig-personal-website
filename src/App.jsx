@@ -386,7 +386,7 @@ const App = () => {
                   className={`px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 flex-1 sm:flex-none whitespace-nowrap cursor-pointer ${
                     activeTab === cat.id 
                       ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' 
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800'
+                      : 'bg-transparent border border-gray-200 dark:border-gray-800 shadow-sm text-gray-600 hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-800'
                   }`}
                 >
                   {cat.label}
@@ -477,7 +477,7 @@ const App = () => {
             >
               <button
                 onClick={() => setVisibleCount((prev) => prev + 6)}
-                className="px-8 py-3 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-full transition-colors border border-gray-200 dark:border-gray-800 shadow-sm"
+                className="px-8 py-3 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-full transition-colors border border-gray-200 dark:border-gray-800 shadow-sm cursor-pointer"
               >
                 Load More Designs
               </button>
