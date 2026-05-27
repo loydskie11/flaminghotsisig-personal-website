@@ -343,7 +343,10 @@ const App = () => {
             <a href="#contact" className="bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-black/10 dark:shadow-white/10 text-sm sm:text-base text-center flex-1 sm:flex-none">
               Let's Talk
             </a>
-            <a href="/resume.pdf" className="border border-black dark:border-white px-6 py-3 rounded-xl font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-sm sm:text-base text-center flex-1 sm:flex-none">
+            <a href="/Jhon_Lyod_Saquilon_Resume.pdf" 
+            target="_blank" 
+            rel="noreferrer"
+            className="border border-black dark:border-white px-6 py-3 rounded-xl font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-sm sm:text-base text-center flex-1 sm:flex-none">
               View Resume
             </a>
           </div>
