@@ -26,11 +26,12 @@ const InstagramIcon = ({ size = 24 }) => (
 
 // Graphic Design Categories & Data
 const graphicCategories = [
-  { id: 'pubmats', label: 'Pubmats & Events' },
+  { id: 'pubmats', label: 'Pubmats' },
+  { id: 'apparel', label: 'Apparel' },
   { id: 'logos', label: 'Logos & Identity' },
-  { id: 'apparel', label: 'Apparel & Stickers' },
   { id: 'motion', label: 'Motion Graphics' },
-  { id: 'personal', label: 'Personal Art' }
+  { id: 'personal', label: 'Personal Art' },
+  { id: 'others', label: 'Others' }
 ];
 
 const graphicData = {
@@ -45,92 +46,92 @@ const graphicData = {
     { id: 6, title: 'Sticker Vectors', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
   ],
   apparel: [
-    { id: 7, 
+    { 
       title: 'CTUAC Animal Science Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v1779766109/sample4_e96uiv.jpg'
     },
-    { id: 8, 
+    { 
       title: 'CTUAC FSS Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779774738/fss-25-26_wcpbtd.png'
     },
-    { id: 9, 
+    { 
       title: 'CTUAC SSG v2 Uniform 26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v1779767438/draft5_fyemh2.png'
     },
-    { id: 10, 
+    { 
       title: 'CTUAC Chorale Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v1779771948/chorale_yze0gn.png'
     },
-    { id: 11, 
+    { 
       title: 'CTUAC BSIT OJT Uniform 26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v1779773687/bsit-ojt-26_wfh9kp.png'
     },
-    { id: 12, 
+    { 
       title: 'CTUAC FSTLP Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779773750/fstlp-25_tmw736.png'
     },
-    { id: 13, 
+    { 
       title: 'CTUAC Horticulture Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779774384/shirt_sample_2.1_kxi9zt.png'
     },
-    { id: 14, 
+    { 
       title: 'CTU FSG Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779774598/fsg-25-26_h9nbsa.png'
     },
-    { id: 15, 
-      title: 'CTUAC SSG D1 Uniform 25-26', 
+    { 
+      title: 'CTUAC SSG Draft Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779775097/ssg-d1_zosd4d.png'
     },
-    { id: 16, 
+    { 
       title: 'CTUAC SSG Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779775082/ssg-v1-25-26_z0udbf.png'
     },
-    { id: 17, 
+    { 
       title: 'CTUAC BIT Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779784937/bit-25-26_wdcuwj.png'
     },
+    { 
+      title: 'CTUAC BSIT Draft Uniform 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779892869/bsit-draft-25-26_ar6iwg.png'
+    },
   ],
   motion: [
     { 
-      id: 30, 
       title: 'aespa Karina, boyfriend', 
       span: 'col-span-1 aspect-[1/1]', 
       video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/v1779801721/karina-boyfriend_vhzhto.mp4',
       hasAudio: true 
     },
     { 
-      id: 31, 
       title: 'Rex County, The Shade', 
       span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
       video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/v1779801854/rexcounty_bi9kbz.mp4',
       hasAudio: true
     },
     { 
-      id: 32, 
       title: 'aespa Karina, Kasih Aba Aba', 
       span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
       video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779803505/kaurasakan_gp7gv5.mp4',
       hasAudio: true
     },
     { 
-      id: 33, 
       title: 'CTUAC SSG Logo Animation', 
       span: 'col-span-1 aspect-[1/1]', 
       video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779803654/ssg_voek5j.mp4'
     },
-    { 
-      id: 34, 
+    {
       title: 'Argao Youth Convergence 25 Standby', 
       span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
       video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779803934/convergence_gz3b11.mp4'
@@ -138,73 +139,61 @@ const graphicData = {
   ],
   personal: [
     { 
-      id: 18, 
       title: 'The Thinker', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791678/thinker_vd0ftq.png'
     },
     { 
-      id: 19, 
       title: 'Wings', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791682/wings_rcjsib.png'
     },
     { 
-      id: 20, 
       title: 'Carlos Sainz Jr.', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791733/sainz_z6mijx.png'
     },
     { 
-      id: 21, 
       title: 'aespa Winter', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779791747/winterae_prmyl7.png'
     },
     { 
-      id: 22, 
       title: 'aespa Karina', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792111/karinaae_lkiw2m.png'
     },
     { 
-      id: 23, 
       title: 'F40 Ferrari', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792059/ef40_s1iyt4.png'
     },
     { 
-      id: 24, 
       title: 'Just Do Air', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792059/jordan_bns6iu.png'
     },
     { 
-      id: 25, 
       title: 'Daniel Caesar, Freudian', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792082/daniel_bdzfg4.png'
     },
     { 
-      id: 26, 
       title: 'Helcurt, Flow', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792081/hcflow_blzdwz.png'
     },
     { 
-      id: 27, 
       title: 'CMIYGL', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792066/cmiygl_pwbjrl.png'
     },
     { 
-      id: 28, 
       title: 'Isang Anghel', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792045/anghel_qjq1fj.jpg'
     },
     { 
-      id: 29, 
       title: 'All The Stars', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792071/panther_ioxwkx.jpg'
@@ -236,6 +225,9 @@ const App = () => {
   const [activeTab, setActiveTab] = useState('pubmats');
   const [activeAudioId, setActiveAudioId] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // NEW: State to track how many items are currently visible
+  const [visibleCount, setVisibleCount] = useState(6); 
 
   // Toggle Dark Mode
   useEffect(() => {
@@ -254,6 +246,11 @@ const App = () => {
       document.body.style.overflow = 'unset';
     }
   }, [isMobileMenuOpen]);
+
+  // NEW: Reset visible count back to 6 every time you click a new category tab
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [activeTab]);
 
   // Animation Variants
   const fadeInUp = {
@@ -380,9 +377,10 @@ const App = () => {
           {/* Animated Grid Layout */}
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <AnimatePresence mode='popLayout'>
-              {graphicData[activeTab].map((item) => (
+              {/* NEW: Slices the array so it only maps the visible count */}
+              {graphicData[activeTab].slice(0, visibleCount).map((item) => (
                 <motion.div 
-                  key={item.id}
+                  key={item.title}
                   layout
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -390,10 +388,9 @@ const App = () => {
                   transition={{ duration: 0.3 }}
                   className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 ${item.span}`}
                   
-                  // --- NEW: HOVER TO PLAY LOGIC ---
+                  // HOVER TO PLAY LOGIC
                   onMouseEnter={(e) => {
                     const video = e.currentTarget.querySelector('video');
-                    // We only play if a video exists in this card
                     if (video) video.play(); 
                   }}
                   onMouseLeave={(e) => {
@@ -407,11 +404,9 @@ const App = () => {
                     <>
                       <video 
                         src={item.video}
-                        // autoPlay has been removed!
                         loop 
                         muted={activeAudioId !== item.id} 
                         playsInline
-                        // Cloudinary magic: Converts the mp4 URL into a jpg thumbnail instantly
                         poster={item.video.replace('.mp4', '.jpg')}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
                       />
@@ -450,6 +445,23 @@ const App = () => {
               ))}
             </AnimatePresence>
           </motion.div>
+
+          {/* NEW: Load More Button Engine */}
+          {graphicData[activeTab].length > visibleCount && (
+            <motion.div 
+              layout 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              className="flex justify-center mt-12 w-full"
+            >
+              <button
+                onClick={() => setVisibleCount((prev) => prev + 6)}
+                className="px-8 py-3 bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-full transition-colors border border-gray-200 dark:border-gray-800 shadow-sm"
+              >
+                Load More Designs
+              </button>
+            </motion.div>
+          )}
         </motion.div>
       </section>
 
@@ -461,9 +473,8 @@ const App = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {projectData.map((project) => (
               <motion.div 
-                key={project.id} 
+                key={project.title} 
                 whileHover={{ y: -5 }}
-                // Added "group" class here to link hover effects to the image inside
                 className="group border border-gray-200 dark:border-gray-800 p-6 sm:p-8 rounded-2xl hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-black shadow-sm hover:shadow-xl dark:shadow-none flex flex-col h-full cursor-pointer"
               >
                 <div className="relative h-40 sm:h-48 bg-gray-100 dark:bg-gray-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden shrink-0">
