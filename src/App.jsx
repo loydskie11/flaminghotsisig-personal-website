@@ -116,6 +116,16 @@ const graphicData = {
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779899249/tech-opt_btgomh.png'
     },
+    { 
+      title: 'CTUAC University T-shirt 25-26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779902950/merch-d1_gspc73.jpg'
+    },
+    { 
+      title: 'CTUAC IKIGAI T-shirt 26', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779904709/summit-shirt_dmdcol.jpg'
+    },
   ],
   motion: [
     { 
@@ -207,6 +217,43 @@ const graphicData = {
       title: 'All The Stars', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792071/panther_ioxwkx.jpg'
+    },
+  ],
+  others: [
+    { 
+      title: 'CTUAC SSG Medal 26', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779902639/medal-ssg_ozk7bi.png'
+    },
+    { 
+      title: 'CTUAC Draft Lanyard', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779903616/BSIT2_jreolz.jpg'
+    },
+    { 
+      title: 'CTUAC 81-Derful Dash Stickers', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779904220/dash-stickers_nywsni.jpg'
+    },
+    { 
+      title: 'Graduation Tarpaulin 1', 
+      span: 'col-span-1 md:col-span-3 aspect-[3/2]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779903298/grad-tarp1_trhlfn.jpg'
+    },
+    { 
+      title: 'CTUAC IKIGAI Lanyard', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779904718/summit-lanyard_d01z9a.jpg'
+    },
+    { 
+      title: 'CTUAC IKIGAI Pin', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779904719/summit-pin_uxu08v.jpg'
+    },
+    { 
+      title: 'CTUAC IKIGAI Profile Frame', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779904722/summit-frame_r7yt6g.jpg'
     },
   ]
 };
