@@ -280,7 +280,16 @@ const App = () => {
       {/* NAVIGATION BAR */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center relative">
-          <span className="text-xl font-bold tracking-tighter z-50">flaminghotsisig.</span>
+          <a 
+            href="#home" 
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="text-xl font-bold tracking-tighter z-50 cursor-pointer hover:opacity-70 transition-opacity"
+          >
+            flaminghotsisig.
+          </a>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-6 items-center font-medium text-sm">
