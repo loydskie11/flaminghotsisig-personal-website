@@ -106,6 +106,16 @@ const graphicData = {
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779892869/bsit-draft-25-26_ar6iwg.png'
     },
+    { 
+      title: 'Canduran Hilltops Jersey', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779898344/hilltops_a7f01k.png'
+    },
+    { 
+      title: 'CTUAC Tech Optimizers Jersey 25', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779899249/tech-opt_btgomh.png'
+    },
   ],
   motion: [
     { 
@@ -211,12 +221,11 @@ const projectData = [
     link: 'https://github.com/durf-nvn/rag-governance'
   },
   { 
-    id: 2,
-    title: 'IoT Fire and Gas Leakage Warning System', 
-    stack: 'Arduino, MQ-2, DHT22',
-    desc: 'A hardware/software safety solution designed for campus laboratory environments.',
-    image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/f_auto,q_auto/v12345/your_iot_screenshot.jpg',
-    link: 'https://github.com/loydskie11/rag-system'
+    title: 'Things I Wanted To Say', 
+    stack: 'HTML, CSS, JavaScript', 
+    desc: 'A web platform designed as a personal space for expressions, reflections, or message storage.',
+    image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779899783/a25de2da-9bdf-432e-b08b-45252ced422c.png', 
+    link: 'https://github.com/loydskie11/Things-I-Wanted-To-Say'
   }
 ];
 
