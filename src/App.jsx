@@ -36,14 +36,58 @@ const graphicCategories = [
 
 const graphicData = {
   pubmats: [
-    { id: 1, title: 'IKIGAI Summit Visuals', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
-    { id: 2, title: 'Foundation Week Teasers', span: 'col-span-1 aspect-square' },
-    { id: 3, title: 'Event Registration Layouts', span: 'col-span-1 aspect-square' },
+    { 
+      title: 'BSIT Valentines Day 24 Poster', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929774/ngl_yduguz.jpg'
+    },
+    { 
+      title: 'BSIT Hackathon 24', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929780/hackathon_drtkcl.jpg'
+    },
+    { 
+      title: 'BSIT Typing Master 24', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929792/typing_master_r45cf6.png'
+    },
+    { 
+      title: 'BSIT Graphic Design 24', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929841/graphic_hhdmgy.png'
+    },
+    { 
+      title: 'BSIT MLBB Tournament 24', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929785/mlbb_rftakx.jpg'
+    },
+    { 
+      title: 'BSIT BAIoTs 24', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929836/baiots_i5qfxd.png'
+    },
+    { 
+      title: 'SSG Swapped Finals 26', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779930735/swapped_egji4t.png'
+    },
+    { 
+      title: 'SSG Women Empowerment 26', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779931649/women-emp_auzrkb.jpg'
+    },
+    { 
+      title: 'SSG IKIGAI Teaser', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779931650/ikigai-teaser_pdm2s9.jpg'
+    },
   ],
   logos: [
-    { id: 4, title: 'Official Event Logo', span: 'col-span-1 aspect-square' },
-    { id: 5, title: 'Organization Badge', span: 'col-span-1 aspect-square' },
-    { id: 6, title: 'Sticker Vectors', span: 'col-span-1 md:col-span-2 aspect-[2/1]' },
+    { 
+      title: 'Argao SK Federation Logo', 
+      span: 'col-span-1 md:col-span-3 aspect-[1/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779932437/skf_olpa00.jpg'
+    },
   ],
   apparel: [
     { 
@@ -153,8 +197,13 @@ const graphicData = {
     },
     {
       title: 'Argao Youth Convergence 25 Standby', 
-      span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
+      span: 'col-span-1 md:col-span-3 aspect-[2/1]', 
       video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779803934/convergence_gz3b11.mp4'
+    },
+    {
+      title: 'CTUAC Local Summit IKIGAI 26 Standby', 
+      span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779930423/IKIGAI-STANDBY3_q097e0.mp4'
     },
   ],
   personal: [
