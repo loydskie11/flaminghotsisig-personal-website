@@ -382,7 +382,7 @@ const App = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-xl font-bold tracking-tighter z-50 cursor-pointer hover:opacity-70 transition-opacity"
+            className="text-xl font-bold tracking-tighter z-50 cursor-pointer hover:text-gray-500 transition-colors"
           >
             flaminghotsisig.
           </a>
@@ -632,7 +632,7 @@ const App = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Let's build something together.</h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto px-4 sm:px-0">
-            Whether it's a sleek brand identity, engaging pubmats, or a complex full-stack web application, I'm currently open for freelance opportunities and collaborations.
+            Whether it’s a cohesive brand identity, dynamic motion graphics, or a responsive web system to back it up, I’m open for freelance opportunities and creative collaborations.
           </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <a href="mailto:loyddsaquilon@gmail.com" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:scale-110 shadow-sm">
