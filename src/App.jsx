@@ -304,6 +304,11 @@ const graphicData = {
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779904722/summit-frame_r7yt6g.jpg'
     },
+    { 
+      title: 'CTUAC IKIGAI Stickers', 
+      span: 'col-span-1 md:col-span-3 aspect-[1/0.50]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779904719/summit-stickers_se9mks.jpg'
+    },
   ]
 };
 
@@ -319,7 +324,7 @@ const projectData = [
   { 
     title: 'Things I Wanted To Say', 
     stack: 'HTML, CSS, JavaScript', 
-    desc: 'A web platform designed as a personal space for expressions, reflections, or message storage.',
+    desc: 'A static website designed as a personal space for expressions, reflections, or message storage.',
     image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779899783/a25de2da-9bdf-432e-b08b-45252ced422c.png', 
     link: 'https://github.com/loydskie11/Things-I-Wanted-To-Say'
   }
