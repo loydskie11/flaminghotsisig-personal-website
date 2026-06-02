@@ -62,6 +62,11 @@ const graphicData = {
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929785/mlbb_rftakx.jpg'
     },
     { 
+      title: 'Argao Youth Convergence 25', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1780426128/597827139_1271968068299263_7971622326673768095_n_rhlbfu.jpg'
+    },
+    { 
       title: 'BSIT BAIoTs 24', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929836/baiots_i5qfxd.png'
@@ -80,6 +85,16 @@ const graphicData = {
       title: 'SSG IKIGAI Teaser', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779931650/ikigai-teaser_pdm2s9.jpg'
+    },
+    { 
+      title: 'SSG IKIGAI Speaker', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779931649/ikigai-speaker_nukcyb.jpg'
+    },
+    { 
+      title: 'SSG Hagit Syagit 25', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1780426371/hagit_d3pj3c.jpg'
     },
   ],
   logos: [
@@ -149,6 +164,11 @@ const graphicData = {
       title: 'CTUAC BSIT Draft Uniform 25-26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779892869/bsit-draft-25-26_ar6iwg.png'
+    },
+    { 
+      title: 'CTUAC Psych Clinical Uniform 26-27', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1780426465/draft1_awnxes.png'
     },
     { 
       title: 'Canduran Hilltops Jersey', 
