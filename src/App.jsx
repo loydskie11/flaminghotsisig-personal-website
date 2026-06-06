@@ -26,7 +26,7 @@ const InstagramIcon = ({ size = 24 }) => (
 
 // Graphic Design Categories & Data
 const graphicCategories = [
-  { id: 'pubmats', label: 'Pubmats' },
+  { id: 'socmed', label: 'Social Media' },
   { id: 'apparel', label: 'Apparel' },
   { id: 'logos', label: 'Logos & Identity' },
   { id: 'motion', label: 'Motion Graphics' },
@@ -35,29 +35,29 @@ const graphicCategories = [
 ];
 
 const graphicData = {
-  pubmats: [
+  socmed: [
     { 
-      title: 'BSIT Valentines Day 24 Poster', 
+      title: 'Valentines Day 24 Poster', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929774/ngl_yduguz.jpg'
     },
     { 
-      title: 'BSIT Hackathon 24', 
+      title: 'Hackathon 24', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929780/hackathon_drtkcl.jpg'
     },
     { 
-      title: 'BSIT Typing Master 24', 
+      title: 'Typing Master 24', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929792/typing_master_r45cf6.png'
     },
     { 
-      title: 'BSIT Graphic Design 24', 
+      title: 'Graphic Design 24', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929841/graphic_hhdmgy.png'
     },
     { 
-      title: 'BSIT MLBB Tournament 24', 
+      title: 'MLBB Tournament 24', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929785/mlbb_rftakx.jpg'
     },
@@ -67,32 +67,32 @@ const graphicData = {
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1780426128/597827139_1271968068299263_7971622326673768095_n_rhlbfu.jpg'
     },
     { 
-      title: 'BSIT BAIoTs 24', 
+      title: 'BAIoTs 24', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779929836/baiots_i5qfxd.png'
     },
     { 
-      title: 'SSG Swapped Finals 26', 
+      title: 'Swapped Finals 26', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779930735/swapped_egji4t.png'
     },
     { 
-      title: 'SSG Women Empowerment 26', 
+      title: 'Women Empowerment 26', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779931649/women-emp_auzrkb.jpg'
     },
     { 
-      title: 'SSG IKIGAI Teaser', 
+      title: 'Local Summit Teaser', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779931650/ikigai-teaser_pdm2s9.jpg'
     },
     { 
-      title: 'SSG IKIGAI Speaker', 
+      title: 'Local Summit Speaker', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779931649/ikigai-speaker_nukcyb.jpg'
     },
     { 
-      title: 'SSG Hagit Syagit 25', 
+      title: 'Hagit Syagit 25', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1780426371/hagit_d3pj3c.jpg'
     },
@@ -352,7 +352,7 @@ const projectData = [
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [activeTab, setActiveTab] = useState('pubmats');
+  const [activeTab, setActiveTab] = useState('socmed');
   const [activeAudioId, setActiveAudioId] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
