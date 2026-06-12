@@ -96,6 +96,11 @@ const graphicData = {
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1780426371/hagit_d3pj3c.jpg'
     },
+    { 
+      title: 'Clinical Uniform 26-27', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781256309/f_byzzks.png'
+    },
   ],
   logos: [
     { 
@@ -225,6 +230,11 @@ const graphicData = {
       span: 'col-span-1 md:col-span-2 aspect-[2/1]', 
       video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1779930423/IKIGAI-STANDBY3_q097e0.mp4'
     },
+    {
+      title: 'Gerbera Daisies Motion', 
+      span: 'col-span-1 aspect-[0.25/0.35]', 
+      video: 'https://res.cloudinary.com/dtnfvmzrd/video/upload/q_auto/f_auto/v1781257785/gerbera_rbzp5p.mp4'
+    },
   ],
   personal: [
     { 
@@ -278,14 +288,104 @@ const graphicData = {
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792066/cmiygl_pwbjrl.png'
     },
     { 
-      title: 'Isang Anghel', 
+      title: 'Prince of Monaco', 
       span: 'col-span-1 aspect-[0.25/0.25]',
-      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792045/anghel_qjq1fj.jpg'
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781256971/leclerc_hbfcvx.jpg'
     },
     { 
       title: 'All The Stars', 
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792071/panther_ioxwkx.jpg'
+    },
+    { 
+      title: 'Orange Chinese Poster', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779793358/orangeChinesePoster2_ubotgh.jpg'
+    },
+    { 
+      title: 'Mental Health Poster', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779793310/2_zuld5f.png'
+    },
+    { 
+      title: 'Karina Personal Project', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779793305/1_etbuc6.png'
+    },
+    { 
+      title: 'Isang Anghel', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779792045/anghel_qjq1fj.jpg'
+    },
+    { 
+      title: 'Im Gonna Grow Wings', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779793262/2_emouf0.jpg'
+    },
+    { 
+      title: 'Lost in Starlight', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779793455/3_acovd5.jpg'
+    },
+    { 
+      title: 'Yu Jimin', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781257535/karina1_gsj8to.jpg'
+    },
+    { 
+      title: 'Yu Jimin Print', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781257535/karina2_obyywz.jpg'
+    },
+    { 
+      title: '3 Gerbera Daisies', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781257784/gerbera_hti4xf.jpg'
+    },
+    { 
+      title: 'Font Showcase: Georgia', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258170/georgia1_ncecke.jpg'
+    },
+    { 
+      title: 'Font Showcase: Georgia 2', 
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258170/georgia2_n1nx1x.jpg'
+    },
+    { 
+      title: 'Dirty Work Karina',
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258297/dw-karina_iyeeml.jpg'
+    },
+    { 
+      title: 'IVE Rei',
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258440/rei_chrvd6.jpg'
+    },
+    { 
+      title: 'Mad Max, Simply Lovely',
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258571/madmax_bwdwba.jpg'
+    },
+    { 
+      title: 'Mandarin Red Miata',
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258668/redcar_ht1zfl.jpg'
+    },
+    { 
+      title: 'Karina Huracan',
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258769/huracan_ordj3l.jpg'
+    },
+    { 
+      title: 'Sa Dulo Ng Taon',
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258861/sdnt_qth3xc.jpg'
+    },
+    { 
+      title: 'Cylindrical Fish box',
+      span: 'col-span-1 aspect-[0.25/0.30]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258956/fishbox_xdppws.jpg'
     },
   ],
   others: [
