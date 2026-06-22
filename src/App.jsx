@@ -498,7 +498,7 @@ const App = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Design', href: '#design' },
-    { name: 'Programs', href: '#programs' },
+    { name: 'Tech Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -715,7 +715,7 @@ const App = () => {
       </section>
 
       {/* PROGRAMS / PROJECTS SECTION */}
-      <section id="programs" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
+      <section id="projects" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <h2 className="text-3xl sm:text-4xl font-bold mb-10 tracking-tight">Technical Projects</h2>
           
