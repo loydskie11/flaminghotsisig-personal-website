@@ -447,6 +447,13 @@ const projectData = [
     desc: 'A static website designed as a personal space for expressions, reflections, or message storage.',
     image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779899783/a25de2da-9bdf-432e-b08b-45252ced422c.png', 
     link: 'https://github.com/loydskie11/Things-I-Wanted-To-Say'
+  },
+  { 
+    title: 'Back on Track', 
+    stack: 'PWA, JavaScript, Supabase', 
+    desc: 'For tracking required hours, logging daily tasks, or monitoring attendance, it keeps your data organized and seamlessly accessible across any device.',
+    image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1782134495/bot-landscape_bxa7ji.png', 
+    link: 'https://github.com/loydskie11/Back-on-Track'
   }
 ];
 
