@@ -28,7 +28,7 @@ const InstagramIcon = ({ size = 24 }) => (
 const graphicCategories = [
   { id: 'socmed', label: 'Social Media' },
   { id: 'apparel', label: 'Apparel' },
-  { id: 'logos', label: 'Logos & Identity' },
+  //{ id: 'logos', label: 'Logos & Identity' },
   { id: 'motion', label: 'Motion Graphics' },
   { id: 'personal', label: 'Personal Art' },
   { id: 'others', label: 'Others' }
@@ -102,13 +102,13 @@ const graphicData = {
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781256309/f_byzzks.png'
     },
   ],
-  logos: [
+  /* logos: [
     { 
       title: 'Argao SK Federation Logo', 
       span: 'col-span-1 md:col-span-3 aspect-[1/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779932437/skf_olpa00.jpg'
     },
-  ],
+  ], */
   apparel: [
     { 
       title: 'CTUAC Animal Science Uniform 25-26', 
