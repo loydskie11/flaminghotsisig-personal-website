@@ -101,6 +101,11 @@ const graphicData = {
       span: 'col-span-1 aspect-[0.25/0.25]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781256309/f_byzzks.png'
     },
+    { 
+      title: 'New Year 2026', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1784363698/final_ttvbyw.png'
+    },
   ],
   /* logos: [
     { 
@@ -194,6 +199,11 @@ const graphicData = {
       title: 'CTUAC IKIGAI T-shirt 26', 
       span: 'col-span-1 aspect-[0.75/0.50]', 
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1779904709/summit-shirt_dmdcol.jpg'
+    },
+    { 
+      title: 'Sova Clothing Under Ctrl', 
+      span: 'col-span-1 aspect-[0.75/0.50]', 
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1784363505/under_ctrl1_aodulc.jpg'
     },
   ],
   motion: [
@@ -386,6 +396,11 @@ const graphicData = {
       title: 'Cylindrical Fish box',
       span: 'col-span-1 aspect-[0.25/0.30]',
       image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/q_auto/f_auto/v1781258956/fishbox_xdppws.jpg'
+    },
+    { 
+      title: 'Carlos Sainz Williams', 
+      span: 'col-span-1 aspect-[0.25/0.25]',
+      image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1784363451/edit1_gh4su2.png'
     },
   ],
   others: [
