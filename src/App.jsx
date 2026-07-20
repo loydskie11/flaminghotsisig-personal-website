@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Mail, ExternalLink, Image as ImageIcon, Menu, X, Volume2, VolumeX } from 'lucide-react';
+import { Moon, Sun, Mail, ExternalLink, Image as ImageIcon, Menu, X, Volume2, VolumeX, Folder, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Analytics } from "@vercel/analytics/react"
 
@@ -26,12 +26,11 @@ const InstagramIcon = ({ size = 24 }) => (
 
 // Graphic Design Categories & Data
 const graphicCategories = [
-  { id: 'socmed', label: 'Social Media' },
-  { id: 'apparel', label: 'Apparel' },
-  //{ id: 'logos', label: 'Logos & Identity' },
-  { id: 'motion', label: 'Motion Graphics' },
-  { id: 'personal', label: 'Personal Art' },
-  { id: 'others', label: 'Others' }
+  { id: 'socmed', label: 'Social Media', tab: 'SOCMED', color: '#FF3D00' },
+  { id: 'apparel', label: 'Apparel', tab: 'MERCH', color: '#3ECF8E' },
+  { id: 'motion', label: 'Motion Graphics', tab: 'MOTION', color: '#A259FF' },
+  { id: 'personal', label: 'Personal Art', tab: 'PERSONAL', color: '#31A8FF' },
+  { id: 'others', label: 'Others', tab: 'MISC', color: '#FF9A00' }
 ];
 
 const graphicData = {
@@ -472,9 +471,72 @@ const projectData = [
   }
 ];
 
+// Skills / Software Proficiency
+const skillGroups = [
+  {
+    label: 'Design & Motion',
+    note: 'Visual craft',
+    skills: [
+      { name: 'Photoshop', level: 92, color: '#31A8FF' },
+      { name: 'Illustrator', level: 90, color: '#FF9A00' },
+      { name: 'Lightroom', level: 78, color: '#00C8FF' },
+      { name: 'Premiere Pro', level: 85, color: '#EA77FF' },
+      { name: 'Alight Motion', level: 88, color: '#4CD5A8' },
+      { name: 'CapCut Pro', level: 86, color: '#00F2C3' },
+      { name: 'Figma', level: 80, color: '#A259FF' },
+      { name: 'Canva', level: 95, color: '#00C4CC' },
+    ]
+  },
+  {
+    label: 'Development',
+    note: 'Systems & code',
+    skills: [
+      { name: 'HTML / CSS / JS', level: 88, color: '#F0743C' },
+      { name: 'React + Vite', level: 85, color: '#61DAFB' },
+      { name: 'React + TypeScript', level: 78, color: '#3178C6' },
+      { name: 'Supabase', level: 80, color: '#3ECF8E' },
+      { name: 'FastAPI (Python)', level: 76, color: '#009485' },
+      { name: 'AI / RAG Systems', level: 74, color: '#FF3D00' },
+    ]
+  }
+];
+
+const SkillBadge = ({ skill, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 16 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: index * 0.04, ease: 'easeOut' }}
+    className="flex items-center gap-4 py-3 border-b border-gray-200 dark:border-gray-800 last:border-b-0"
+  >
+    <span
+      className="w-2.5 h-2.5 rounded-full shrink-0"
+      style={{ backgroundColor: skill.color }}
+    />
+    <span className="text-sm sm:text-base font-semibold flex-1 min-w-0 truncate">
+      {skill.name}
+    </span>
+    <div className="flex items-center gap-3 shrink-0 w-32 sm:w-40">
+      <div className="relative flex-1 h-1.5 rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${skill.level}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: index * 0.04 + 0.1, ease: 'easeOut' }}
+          className="absolute inset-y-0 left-0 rounded-full"
+          style={{ background: `linear-gradient(90deg, ${skill.color}99, ${skill.color})` }}
+        />
+      </div>
+      <span className="font-mono text-xs text-gray-500 dark:text-gray-500 w-8 text-right">
+        {skill.level}%
+      </span>
+    </div>
+  </motion.div>
+);
+
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [activeTab, setActiveTab] = useState('socmed');
+  const [activeTab, setActiveTab] = useState(null);
   const [activeAudioId, setActiveAudioId] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
@@ -513,6 +575,7 @@ const App = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Design', href: '#design' },
+    { name: 'Skills', href: '#skills' },
     { name: 'Tech Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -595,13 +658,13 @@ const App = () => {
       <section id="home" className="pt-32 pb-20 px-4 md:px-6 max-w-6xl mx-auto min-h-screen flex flex-col justify-center">
         <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="max-w-3xl">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-            Designing visuals. <br /> Coding logic.
+            Designing visuals. <br /> Coding <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF3D00] to-[#FF7A00]">logic</span>.
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
             I'm Jhon Lyod L. Saquilon, an incoming 4th-year BSIT student. My work is primarily driven by a deep passion for graphic design and motion graphics—crafting compelling visual identities, engaging materials, and dynamic animations. While design is my main focus, I also bring technical visions to life by building functional, responsive web systems.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="#contact" className="bg-black text-white dark:bg-white dark:text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-black/10 dark:shadow-white/10 text-sm sm:text-base text-center flex-1 sm:flex-none">
+            <a href="#contact" className="bg-gradient-to-r from-[#FF3D00] to-[#FF7A00] text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-[#FF3D00]/20 text-sm sm:text-base text-center flex-1 sm:flex-none">
               Let's Talk
             </a>
             <a href="/Jhon_Lyod_Saquilon_Resume.pdf" 
@@ -617,115 +680,220 @@ const App = () => {
       {/* GRAPHIC DESIGN SECTION */}
       <section id="design" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Graphic Design Showcase</h2>
-            
-            {/* Category Filter Tabs */}
-            <div className="flex flex-wrap gap-2">
-              {graphicCategories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveTab(cat.id)}
-                  className={`px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 flex-1 sm:flex-none whitespace-nowrap cursor-pointer ${
-                    activeTab === cat.id 
-                      ? 'bg-black text-white dark:bg-white dark:text-black shadow-md' 
-                      : 'bg-transparent border border-gray-200 dark:border-gray-800 shadow-sm text-gray-600 hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
+          <div className="mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Graphic Design Showcase</h2>
+            <p className="text-sm sm:text-base text-gray-500 dark:text-gray-500">
+              {activeTab ? 'Browsing a folder — close it to see the rest.' : 'Open a folder to browse that category.'}
+            </p>
           </div>
-          
-          {/* Animated Grid Layout */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <AnimatePresence mode='popLayout'>
-              {/* NEW: Slices the array so it only maps the visible count */}
-              {graphicData[activeTab].slice(0, visibleCount).map((item) => (
-                <motion.div 
-                  key={item.title}
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3 }}
-                  className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 ${item.span}`}
-                  
-                  // HOVER TO PLAY LOGIC
-                  onMouseEnter={(e) => {
-                    const video = e.currentTarget.querySelector('video');
-                    if (video) video.play(); 
-                  }}
-                  onMouseLeave={(e) => {
-                    const video = e.currentTarget.querySelector('video');
-                    if (video) video.pause();
-                  }}
-                >
-                  
-                  {/* CONDITIONAL RENDERING: Video vs Image */}
-                  {item.video ? (
-                    <>
-                      <video 
-                        src={item.video}
-                        loop 
-                        muted={activeAudioId !== item.id} 
-                        playsInline
-                        poster={item.video.replace('.mp4', '.jpg')}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
-                      />
-                      
-                      {/* Minimalist Audio Toggle Button */}
-                      {item.hasAudio && (
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation(); 
-                            setActiveAudioId(activeAudioId === item.id ? null : item.id);
-                          }}
-                          className="absolute top-4 right-4 z-30 p-2 bg-black/40 hover:bg-black/70 text-white rounded-full backdrop-blur-md transition-all border border-white/10 shadow-lg cursor-pointer opacity-0 group-hover:opacity-100"
-                          aria-label="Toggle audio"
-                        >
-                          {activeAudioId === item.id ? <Volume2 size={16} /> : <VolumeX size={16} />}
-                        </button>
-                      )}
-                    </>
-                  ) : item.image ? (
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  ) : (
-                    <ImageIcon size={48} className="text-gray-300 dark:text-gray-700 transition-transform duration-700 group-hover:scale-110" />
-                  )}
-                                      
-                  {/* Hover Title Overlay */}
-                  <div className="absolute bottom-0 left-0 w-full pt-16 pb-4 px-5 bg-gradient-to-t from-black/90 via-black/50 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20 pointer-events-none">
-                    <span className="text-white font-bold tracking-wider text-sm sm:text-base drop-shadow-md">
-                      {item.title}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
 
-          {/* NEW: Load More Button Engine */}
-          {graphicData[activeTab].length > visibleCount && (
-            <motion.div 
-              layout 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              className="flex justify-center mt-12 w-full"
-            >
-              <button
-                onClick={() => setVisibleCount((prev) => prev + 6)}
-                className="px-8 py-3 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-full transition-colors border border-gray-200 dark:border-gray-800 shadow-sm cursor-pointer"
+          <AnimatePresence mode="wait">
+            {!activeTab ? (
+              // ---------- FOLDER PICKER VIEW ----------
+              <motion.div
+                key="folder-picker"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6"
               >
-                Load More Designs
-              </button>
-            </motion.div>
-          )}
+                {graphicCategories.map((cat, i) => (
+                  <motion.button
+                    key={cat.id}
+                    onClick={() => setActiveTab(cat.id)}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, delay: i * 0.05, ease: 'easeOut' }}
+                    whileHover={{ y: -6 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="group relative text-left cursor-pointer"
+                  >
+                    {/* Folder tab */}
+                    <div
+                      className="h-4 w-14 rounded-t-lg -mb-1 ml-2 transition-transform duration-300 group-hover:-translate-y-0.5"
+                      style={{ backgroundColor: cat.color }}
+                    />
+                    {/* Folder body */}
+                    <div
+                      className="relative aspect-[4/3] rounded-2xl rounded-tl-none flex flex-col justify-between p-4 sm:p-5 shadow-sm group-hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-800 overflow-hidden"
+                      style={{ backgroundColor: 'color-mix(in srgb, ' + cat.color + ' 12%, transparent)' }}
+                    >
+                      <div className="flex items-start justify-between">
+                        <Folder
+                          size={32}
+                          strokeWidth={1.5}
+                          style={{ color: cat.color }}
+                          className="transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
+                        />
+                        <span className="font-mono text-[10px] sm:text-xs text-gray-400 dark:text-gray-600">
+                          {String(graphicData[cat.id].length).padStart(2, '0')}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="block font-mono text-[10px] tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-1">
+                          {cat.tab}
+                        </span>
+                        <span className="block font-bold text-sm sm:text-base leading-tight">
+                          {cat.label}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.button>
+                ))}
+              </motion.div>
+            ) : (
+              // ---------- OPENED FOLDER VIEW ----------
+              <motion.div
+                key="folder-open"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Folder header bar */}
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200 dark:border-gray-800">
+                  <button
+                    onClick={() => setActiveTab(null)}
+                    className="flex items-center gap-2 font-bold text-sm sm:text-base hover:text-gray-500 transition-colors cursor-pointer"
+                  >
+                    <ArrowLeft size={18} />
+                    <span
+                      className="w-2.5 h-2.5 rounded-full"
+                      style={{ backgroundColor: graphicCategories.find((c) => c.id === activeTab)?.color }}
+                    />
+                    {graphicCategories.find((c) => c.id === activeTab)?.label}
+                    <span className="font-mono text-xs text-gray-400 dark:text-gray-600 font-normal">
+                      ({graphicData[activeTab].length})
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => setActiveTab(null)}
+                    aria-label="Close folder"
+                    className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+
+                {/* Animated Grid Layout */}
+                <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <AnimatePresence mode='popLayout'>
+                    {graphicData[activeTab].slice(0, visibleCount).map((item) => (
+                      <motion.div 
+                        key={item.title}
+                        layout
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.3 }}
+                        className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 ${item.span}`}
+                        
+                        // HOVER TO PLAY LOGIC
+                        onMouseEnter={(e) => {
+                          const video = e.currentTarget.querySelector('video');
+                          if (video) video.play(); 
+                        }}
+                        onMouseLeave={(e) => {
+                          const video = e.currentTarget.querySelector('video');
+                          if (video) video.pause();
+                        }}
+                      >
+                        
+                        {/* CONDITIONAL RENDERING: Video vs Image */}
+                        {item.video ? (
+                          <>
+                            <video 
+                              src={item.video}
+                              loop 
+                              muted={activeAudioId !== item.id} 
+                              playsInline
+                              poster={item.video.replace('.mp4', '.jpg')}
+                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+                            />
+                            
+                            {/* Minimalist Audio Toggle Button */}
+                            {item.hasAudio && (
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation(); 
+                                  setActiveAudioId(activeAudioId === item.id ? null : item.id);
+                                }}
+                                className="absolute top-4 right-4 z-30 p-2 bg-black/40 hover:bg-black/70 text-white rounded-full backdrop-blur-md transition-all border border-white/10 shadow-lg cursor-pointer opacity-0 group-hover:opacity-100"
+                                aria-label="Toggle audio"
+                              >
+                                {activeAudioId === item.id ? <Volume2 size={16} /> : <VolumeX size={16} />}
+                              </button>
+                            )}
+                          </>
+                        ) : item.image ? (
+                          <img 
+                            src={item.image} 
+                            alt={item.title} 
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                        ) : (
+                          <ImageIcon size={48} className="text-gray-300 dark:text-gray-700 transition-transform duration-700 group-hover:scale-110" />
+                        )}
+                                            
+                        {/* Hover Title Overlay */}
+                        <div className="absolute bottom-0 left-0 w-full pt-16 pb-4 px-5 bg-gradient-to-t from-black/90 via-black/50 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20 pointer-events-none">
+                          <span className="text-white font-bold tracking-wider text-sm sm:text-base drop-shadow-md">
+                            {item.title}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </motion.div>
+
+                {/* Load More Button Engine */}
+                {graphicData[activeTab].length > visibleCount && (
+                  <motion.div 
+                    layout 
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    className="flex justify-center mt-12 w-full"
+                  >
+                    <button
+                      onClick={() => setVisibleCount((prev) => prev + 6)}
+                      className="px-8 py-3 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-full transition-colors border border-gray-200 dark:border-gray-800 shadow-sm cursor-pointer"
+                    >
+                      Load More Designs
+                    </button>
+                  </motion.div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </section>
+
+      {/* SKILLS / SOFTWARE PROFICIENCY SECTION */}
+      <section id="skills" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+          <div className="flex items-end justify-between mb-10 gap-4">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Skills &amp; Software</h2>
+            <span className="hidden sm:block font-mono text-xs text-gray-500 dark:text-gray-500 tracking-widest uppercase">
+              Heat check
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12">
+            {skillGroups.map((group) => (
+              <div key={group.label}>
+                <div className="flex items-baseline justify-between mb-4">
+                  <h3 className="text-lg sm:text-xl font-bold">{group.label}</h3>
+                  <span className="font-mono text-xs text-gray-400 dark:text-gray-600">{group.note}</span>
+                </div>
+                <div>
+                  {group.skills.map((skill, i) => (
+                    <SkillBadge key={skill.name} skill={skill} index={i} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </section>
 
