@@ -477,14 +477,14 @@ const skillGroups = [
     label: 'Design & Motion',
     note: 'Visual craft',
     skills: [
-      { name: 'Photoshop', level: 92, color: '#31A8FF' },
-      { name: 'Illustrator', level: 90, color: '#FF9A00' },
-      { name: 'Lightroom', level: 78, color: '#00C8FF' },
-      { name: 'Premiere Pro', level: 85, color: '#EA77FF' },
+      { name: 'Canva', level: 95, color: '#00C4CC' },
+      { name: 'Photoshop', level: 90, color: '#31A8FF' },
+      { name: 'Illustrator', level: 60, color: '#FF9A00' },
+      { name: 'Lightroom', level: 75, color: '#00C8FF' },
+      { name: 'Premiere Pro', level: 60, color: '#EA77FF' },
       { name: 'Alight Motion', level: 88, color: '#4CD5A8' },
       { name: 'CapCut Pro', level: 86, color: '#00F2C3' },
-      { name: 'Figma', level: 80, color: '#A259FF' },
-      { name: 'Canva', level: 95, color: '#00C4CC' },
+      { name: 'Figma', level: 60, color: '#A259FF' },
     ]
   },
   {
@@ -869,34 +869,6 @@ const App = () => {
         </motion.div>
       </section>
 
-      {/* SKILLS / SOFTWARE PROFICIENCY SECTION */}
-      <section id="skills" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-          <div className="flex items-end justify-between mb-10 gap-4">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Skills &amp; Software</h2>
-            <span className="hidden sm:block font-mono text-xs text-gray-500 dark:text-gray-500 tracking-widest uppercase">
-              Heat check
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12">
-            {skillGroups.map((group) => (
-              <div key={group.label}>
-                <div className="flex items-baseline justify-between mb-4">
-                  <h3 className="text-lg sm:text-xl font-bold">{group.label}</h3>
-                  <span className="font-mono text-xs text-gray-400 dark:text-gray-600">{group.note}</span>
-                </div>
-                <div>
-                  {group.skills.map((skill, i) => (
-                    <SkillBadge key={skill.name} skill={skill} index={i} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
       {/* PROGRAMS / PROJECTS SECTION */}
       <section id="projects" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
@@ -941,6 +913,36 @@ const App = () => {
           </div>
         </motion.div>
       </section>
+
+      {/* SKILLS / SOFTWARE PROFICIENCY SECTION */}
+      <section id="skills" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+          <div className="flex items-end justify-between mb-10 gap-4">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Skills &amp; Software</h2>
+            <span className="hidden sm:block font-mono text-xs text-gray-500 dark:text-gray-500 tracking-widest uppercase">
+              Heat check
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12">
+            {skillGroups.map((group) => (
+              <div key={group.label}>
+                <div className="flex items-baseline justify-between mb-4">
+                  <h3 className="text-lg sm:text-xl font-bold">{group.label}</h3>
+                  <span className="font-mono text-xs text-gray-400 dark:text-gray-600">{group.note}</span>
+                </div>
+                <div>
+                  {group.skills.map((skill, i) => (
+                    <SkillBadge key={skill.name} skill={skill} index={i} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      
 
       {/* CONTACT SECTION */}
       <section id="contact" className="py-24 sm:py-32 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800 text-center">
