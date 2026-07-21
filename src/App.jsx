@@ -26,10 +26,10 @@ const InstagramIcon = ({ size = 24 }) => (
 
 // Graphic Design Categories & Data
 const graphicCategories = [
-  { id: 'socmed', label: 'Social Media', tab: 'SOCMED', color: '#FF3D00' },
-  { id: 'apparel', label: 'Apparel', tab: 'MERCH', color: '#3ECF8E' },
   { id: 'motion', label: 'Motion Graphics', tab: 'MOTION', color: '#A259FF' },
+  { id: 'socmed', label: 'Social Media', tab: 'SOCMED', color: '#FF3D00' },
   { id: 'personal', label: 'Personal Art', tab: 'PERSONAL', color: '#31A8FF' },
+  { id: 'apparel', label: 'Apparel', tab: 'MERCH', color: '#3ECF8E' },
   { id: 'others', label: 'Others', tab: 'MISC', color: '#FF9A00' }
 ];
 
@@ -471,34 +471,43 @@ const projectData = [
   }
 ];
 
-// Skills / Software Proficiency
+// Skills / Software Proficiency — years of hands-on use + a tier label reads as more credible than a bare percentage
 const skillGroups = [
   {
     label: 'Design & Motion',
     note: 'Visual craft',
     skills: [
-      { name: 'Canva', level: 95, color: '#00C4CC' },
-      { name: 'Photoshop', level: 90, color: '#31A8FF' },
-      { name: 'Illustrator', level: 60, color: '#FF9A00' },
-      { name: 'Lightroom', level: 75, color: '#00C8FF' },
-      { name: 'Premiere Pro', level: 60, color: '#EA77FF' },
-      { name: 'Alight Motion', level: 88, color: '#4CD5A8' },
-      { name: 'CapCut Pro', level: 86, color: '#00F2C3' },
-      { name: 'Figma', level: 60, color: '#A259FF' },
+      { name: 'Canva', years: 5, tier: 'Expert', color: '#00C4CC' },
+      { name: 'Alight Motion', years: 5, tier: 'Expert', color: '#4CD5A8' },
+      { name: 'Photoshop', years: 5, tier: 'Expert', color: '#31A8FF' },
+      { name: 'CapCut Pro', years: 4, tier: 'Advanced', color: '#00F2C3' },
+      { name: 'Figma', years: 3, tier: 'Advanced', color: '#A259FF' },
+      { name: 'Lightroom', years: 2, tier: 'Proficient', color: '#00C8FF' },
+      { name: 'Illustrator', years: 1, tier: 'Proficient', color: '#FF9A00' },
+      { name: 'Premiere Pro', years: 1, tier: 'Proficient', color: '#EA77FF' },
     ]
   },
   {
     label: 'Development',
     note: 'Systems & code',
     skills: [
-      { name: 'HTML / CSS / JS', level: 88, color: '#F0743C' },
-      { name: 'React + Vite', level: 85, color: '#61DAFB' },
-      { name: 'React + TypeScript', level: 78, color: '#3178C6' },
-      { name: 'Supabase', level: 80, color: '#3ECF8E' },
-      { name: 'FastAPI (Python)', level: 76, color: '#009485' },
-      { name: 'AI / RAG Systems', level: 74, color: '#FF3D00' },
+      { name: 'HTML / CSS / JS', years: 3, tier: 'Advanced', color: '#F0743C' },
+      { name: 'React + Vite', years: 2, tier: 'Advanced', color: '#61DAFB' },
+      { name: 'Supabase', years: 2, tier: 'Proficient', color: '#3ECF8E' },
+      { name: 'React + TypeScript', years: 1, tier: 'Proficient', color: '#3178C6' },
+      { name: 'FastAPI (Python)', years: 1, tier: 'Proficient', color: '#009485' },
+      { name: 'AI / RAG Systems', years: 1, tier: 'Proficient', color: '#FF3D00' },
     ]
   }
+];
+const SKILL_MAX_YEARS = 5;
+
+// Hero showcase — rotates through a few of the strongest Social Media pieces
+const heroShowcase = [
+  { title: graphicData.socmed[3].title, image: graphicData.socmed[3].image, tilt: -3 },   // Graphic Design 24
+  { title: graphicData.socmed[8].title, image: graphicData.socmed[8].image, tilt: 2 },    // Women Empowerment 26
+  { title: graphicData.socmed[0].title, image: graphicData.socmed[0].image, tilt: -2 },   // Valentines Day 24 Poster
+  { title: graphicData.socmed[13].title, image: graphicData.socmed[13].image, tilt: 3 },  // New Year 2026
 ];
 
 const SkillBadge = ({ skill, index }) => (
@@ -516,23 +525,250 @@ const SkillBadge = ({ skill, index }) => (
     <span className="text-sm sm:text-base font-semibold flex-1 min-w-0 truncate">
       {skill.name}
     </span>
-    <div className="flex items-center gap-3 shrink-0 w-32 sm:w-40">
-      <div className="relative flex-1 h-1.5 rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
+    <div className="flex items-center gap-3 shrink-0">
+      <span className="font-mono text-[10px] sm:text-xs text-gray-400 dark:text-gray-600 hidden sm:inline">
+        {skill.years}+ yr{skill.years > 1 ? 's' : ''}
+      </span>
+      <div className="relative w-20 sm:w-24 h-1.5 rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
-          whileInView={{ width: `${skill.level}%` }}
+          whileInView={{ width: `${Math.min((skill.years / SKILL_MAX_YEARS) * 100, 100)}%` }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: index * 0.04 + 0.1, ease: 'easeOut' }}
           className="absolute inset-y-0 left-0 rounded-full"
           style={{ background: `linear-gradient(90deg, ${skill.color}99, ${skill.color})` }}
         />
       </div>
-      <span className="font-mono text-xs text-gray-500 dark:text-gray-500 w-8 text-right">
-        {skill.level}%
+      <span
+        className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wide w-16 sm:w-20 text-right"
+        style={{ color: skill.color }}
+      >
+        {skill.tier}
       </span>
     </div>
   </motion.div>
 );
+
+// Image with a skeleton/blur-up loading state — avoids grid jump while Cloudinary assets load
+// One-time type-in animation for the nav logo, with a blinking cursor that fades once done
+const TypeIn = ({ text, className = '', speed = 0.045, startDelay = 0.2 }) => {
+  const [done, setDone] = useState(false);
+  const reduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  useEffect(() => {
+    if (reduceMotion) { setDone(true); return; }
+    const t = setTimeout(() => setDone(true), (startDelay + text.length * speed) * 1000);
+    return () => clearTimeout(t);
+  }, [text, speed, startDelay, reduceMotion]);
+
+  if (reduceMotion) {
+    return <span className={className}>{text}</span>;
+  }
+
+  return (
+    <span className={className} aria-label={text}>
+      <span aria-hidden="true">
+        {text.split('').map((char, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.01, delay: startDelay + i * speed }}
+            style={{ display: 'inline-block' }}
+          >
+            {char}
+          </motion.span>
+        ))}
+        <motion.span
+          initial={{ opacity: 1 }}
+          animate={{ opacity: done ? 0 : [1, 0] }}
+          transition={done ? { duration: 0.4 } : { duration: 0.6, repeat: Infinity, repeatType: 'reverse' }}
+          className="inline-block w-[2px] h-[0.9em] ml-0.5 -mb-0.5 bg-current"
+        />
+      </span>
+    </span>
+  );
+};
+
+const SmartImage = ({ src, alt, className = '' }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <>
+      {!loaded && (
+        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse" />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={`${className} transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      />
+    </>
+  );
+};
+
+// Full-screen lightbox / detail view for a design item, with prev/next navigation within its folder
+const Lightbox = ({ items, index, onClose, onNavigate, activeAudioId, setActiveAudioId }) => {
+  const item = items[index];
+
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') onNavigate((index + 1) % items.length);
+      if (e.key === 'ArrowLeft') onNavigate((index - 1 + items.length) % items.length);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [index, items.length, onClose, onNavigate]);
+
+  if (!item) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={item.title}
+    >
+      {/* Close */}
+      <button
+        onClick={onClose}
+        aria-label="Close preview"
+        className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-md transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+      >
+        <X size={22} />
+      </button>
+
+      {/* Prev / Next */}
+      {items.length > 1 && (
+        <>
+          <button
+            onClick={(e) => { e.stopPropagation(); onNavigate((index - 1 + items.length) % items.length); }}
+            aria-label="Previous item"
+            className="absolute left-2 sm:left-6 z-20 p-2.5 sm:p-3 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-md transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
+            <ArrowLeft size={20} />
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); onNavigate((index + 1) % items.length); }}
+            aria-label="Next item"
+            className="absolute right-2 sm:right-6 z-20 p-2.5 sm:p-3 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-md transition-colors cursor-pointer rotate-180 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
+            <ArrowLeft size={20} />
+          </button>
+        </>
+      )}
+
+      <motion.div
+        key={item.title}
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.96 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
+        onClick={(e) => e.stopPropagation()}
+        className="relative max-w-4xl w-full max-h-[85vh] flex flex-col items-center"
+      >
+        <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden rounded-xl bg-gray-900">
+          {item.video ? (
+            <video
+              src={item.video}
+              controls
+              autoPlay
+              loop
+              muted={activeAudioId !== item.id}
+              playsInline
+              className="max-w-full max-h-[70vh] rounded-xl"
+            />
+          ) : (
+            <img
+              src={item.image}
+              alt={item.title}
+              className="max-w-full max-h-[70vh] object-contain rounded-xl"
+            />
+          )}
+        </div>
+        <div className="w-full flex items-center justify-between gap-4 pt-4 px-1">
+          <span className="text-white font-bold text-sm sm:text-base">{item.title}</span>
+          <span className="font-mono text-xs text-gray-400 shrink-0">
+            {index + 1} / {items.length}
+          </span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+// Auto-rotating showcase of a few strongest pieces — crossfades on a timer, pauses on hover, clickable dots
+const HeroShowcase = ({ items, onOpen }) => {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => setIndex((i) => (i + 1) % items.length), 3200);
+    return () => clearInterval(t);
+  }, [paused, items.length]);
+
+  const current = items[index];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      className="relative w-full max-w-xs sm:max-w-sm lg:flex-1 lg:max-w-md shrink-0"
+    >
+      <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-black/5 dark:border-white/10 bg-gray-100 dark:bg-gray-900 cursor-pointer">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={current.title}
+            initial={{ opacity: 0, scale: 1.04, rotate: current.tilt }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="absolute inset-0"
+            onClick={onOpen}
+          >
+            <SmartImage src={current.image} alt={current.title} className="w-full h-full object-cover" />
+            <div className="absolute bottom-0 left-0 w-full pt-16 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/30 to-transparent">
+              <span className="text-white font-bold text-sm sm:text-base drop-shadow-md">{current.title}</span>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Dot indicators */}
+      <div className="flex items-center justify-center gap-2 mt-4">
+        {items.map((item, i) => (
+          <button
+            key={item.title}
+            onClick={() => setIndex(i)}
+            aria-label={`Show ${item.title}`}
+            className="p-1.5 -m-1.5 cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00] rounded-full"
+          >
+            <span
+              className={`block rounded-full transition-all duration-300 ${
+                i === index ? 'w-6 h-1.5 bg-gradient-to-r from-[#FF3D00] to-[#FF7A00]' : 'w-1.5 h-1.5 bg-gray-300 dark:bg-gray-700'
+              }`}
+            />
+          </button>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -542,6 +778,20 @@ const App = () => {
   
   // NEW: State to track how many items are currently visible
   const [visibleCount, setVisibleCount] = useState(6); 
+
+  // Lightbox: index of the item open within the current folder, or null if closed
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+
+  // Esc closes the open folder when the lightbox isn't already handling it
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape' && activeTab && lightboxIndex === null) {
+        setActiveTab(null);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [activeTab, lightboxIndex]);
 
   // Toggle Dark Mode
   useEffect(() => {
@@ -554,16 +804,13 @@ const App = () => {
 
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
   }, [isMobileMenuOpen]);
 
   // NEW: Reset visible count back to 6 every time you click a new category tab
   useEffect(() => {
     setVisibleCount(6);
+    setLightboxIndex(null);
   }, [activeTab]);
 
   // Animation Variants
@@ -575,8 +822,8 @@ const App = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Design', href: '#design' },
-    { name: 'Skills', href: '#skills' },
     { name: 'Tech Projects', href: '#projects' },
+    { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -594,7 +841,7 @@ const App = () => {
             }}
             className="text-xl font-bold tracking-tighter z-50 cursor-pointer hover:text-gray-500 transition-colors"
           >
-            flaminghotsisig.
+            <TypeIn text="flaminghotsisig." />
           </a>
           
           {/* Desktop Navigation */}
@@ -656,31 +903,46 @@ const App = () => {
 
       {/* HOME / ABOUT ME SECTION */}
       <section id="home" className="pt-32 pb-20 px-4 md:px-6 max-w-6xl mx-auto min-h-screen flex flex-col justify-center">
-        <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-            Designing visuals. <br /> Coding <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF3D00] to-[#FF7A00]">logic</span>.
-          </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-            I'm Jhon Lyod L. Saquilon, an incoming 4th-year BSIT student. My work is primarily driven by a deep passion for graphic design and motion graphics—crafting compelling visual identities, engaging materials, and dynamic animations. While design is my main focus, I also bring technical visions to life by building functional, responsive web systems.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a href="#contact" className="bg-gradient-to-r from-[#FF3D00] to-[#FF7A00] text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-[#FF3D00]/20 text-sm sm:text-base text-center flex-1 sm:flex-none">
-              Let's Talk
-            </a>
-            <a href="/Jhon_Lyod_Saquilon_Resume.pdf" 
-            target="_blank" 
-            rel="noreferrer"
-            className="border border-black dark:border-white px-6 py-3 rounded-xl font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-sm sm:text-base text-center flex-1 sm:flex-none">
-              View Resume
-            </a>
-          </div>
-        </motion.div>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+          <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="max-w-2xl lg:flex-1">
+            <span className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm tracking-widest uppercase text-gray-500 dark:text-gray-500 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#FF3D00] to-[#FF7A00]" />
+              Graphic &amp; Motion Designer — Argao, Cebu, PH
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+              Designing visuals. <br /> Coding <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF3D00] to-[#FF7A00]">logic</span>.
+            </h1>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+              I'm Jhon Lyod L. Saquilon — a designer first, crafting visual identities and motion work, then building the responsive systems that put them online.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="#contact" className="bg-gradient-to-r from-[#FF3D00] to-[#FF7A00] text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-[#FF3D00]/20 text-sm sm:text-base text-center flex-1 sm:flex-none">
+                Let's Talk
+              </a>
+              <a href="/Jhon_Lyod_Saquilon_Resume.pdf" 
+              target="_blank" 
+              rel="noreferrer"
+              className="border border-black dark:border-white px-6 py-3 rounded-xl font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-sm sm:text-base text-center flex-1 sm:flex-none">
+                View Resume
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Hero visual: an auto-rotating showcase of a few strongest Social Media pieces */}
+          <HeroShowcase items={heroShowcase} onOpen={() => {
+            setActiveTab('socmed');
+            document.getElementById('design')?.scrollIntoView({ behavior: 'smooth' });
+          }} />
+        </div>
       </section>
 
       {/* GRAPHIC DESIGN SECTION */}
       <section id="design" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <div className="mb-10">
+            <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-[#FF3D00] mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF3D00]" /> 01 — Portfolio
+            </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Graphic Design Showcase</h2>
             <p className="text-sm sm:text-base text-gray-500 dark:text-gray-500">
               {activeTab ? 'Browsing a folder — close it to see the rest.' : 'Open a folder to browse that category.'}
@@ -707,7 +969,7 @@ const App = () => {
                     transition={{ duration: 0.35, delay: i * 0.05, ease: 'easeOut' }}
                     whileHover={{ y: -6 }}
                     whileTap={{ scale: 0.97 }}
-                    className="group relative text-left cursor-pointer"
+                    className="group relative text-left cursor-pointer rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00]"
                   >
                     {/* Folder tab */}
                     <div
@@ -751,11 +1013,11 @@ const App = () => {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Folder header bar */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200 dark:border-gray-800">
+                {/* Folder header bar — sticky so the close control stays reachable while scrolling the grid */}
+                <div className="sticky top-16 sm:top-20 z-30 -mx-4 px-4 md:mx-0 md:px-0 bg-white/90 dark:bg-black/90 backdrop-blur-md flex items-center justify-between mb-6 py-3 border-b border-gray-200 dark:border-gray-800">
                   <button
                     onClick={() => setActiveTab(null)}
-                    className="flex items-center gap-2 font-bold text-sm sm:text-base hover:text-gray-500 transition-colors cursor-pointer"
+                    className="flex items-center gap-2 font-bold text-sm sm:text-base hover:text-gray-500 transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00] rounded-md"
                   >
                     <ArrowLeft size={18} />
                     <span
@@ -770,7 +1032,7 @@ const App = () => {
                   <button
                     onClick={() => setActiveTab(null)}
                     aria-label="Close folder"
-                    className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+                    className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00]"
                   >
                     <X size={20} />
                   </button>
@@ -779,7 +1041,7 @@ const App = () => {
                 {/* Animated Grid Layout */}
                 <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <AnimatePresence mode='popLayout'>
-                    {graphicData[activeTab].slice(0, visibleCount).map((item) => (
+                    {graphicData[activeTab].slice(0, visibleCount).map((item, idx) => (
                       <motion.div 
                         key={item.title}
                         layout
@@ -787,7 +1049,12 @@ const App = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.8 }}
                         transition={{ duration: 0.3 }}
-                        className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 ${item.span}`}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`Open ${item.title}`}
+                        onClick={() => setLightboxIndex(idx)}
+                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLightboxIndex(idx); } }}
+                        className={`relative group bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden cursor-pointer flex items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00] ${item.span}`}
                         
                         // HOVER TO PLAY LOGIC
                         onMouseEnter={(e) => {
@@ -827,9 +1094,9 @@ const App = () => {
                             )}
                           </>
                         ) : item.image ? (
-                          <img 
-                            src={item.image} 
-                            alt={item.title} 
+                          <SmartImage
+                            src={item.image}
+                            alt={item.title}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           />
                         ) : (
@@ -857,7 +1124,7 @@ const App = () => {
                   >
                     <button
                       onClick={() => setVisibleCount((prev) => prev + 6)}
-                      className="px-8 py-3 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-full transition-colors border border-gray-200 dark:border-gray-800 shadow-sm cursor-pointer"
+                      className="px-8 py-3 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-full transition-colors border border-gray-200 dark:border-gray-800 shadow-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00]"
                     >
                       Load More Designs
                     </button>
@@ -866,12 +1133,29 @@ const App = () => {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* LIGHTBOX / DETAIL VIEW */}
+          <AnimatePresence>
+            {activeTab && lightboxIndex !== null && (
+              <Lightbox
+                items={graphicData[activeTab]}
+                index={lightboxIndex}
+                onClose={() => setLightboxIndex(null)}
+                onNavigate={setLightboxIndex}
+                activeAudioId={activeAudioId}
+                setActiveAudioId={setActiveAudioId}
+              />
+            )}
+          </AnimatePresence>
         </motion.div>
       </section>
 
       {/* PROGRAMS / PROJECTS SECTION */}
       <section id="projects" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+          <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-[#FF3D00] mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF3D00]" /> 02 — Built &amp; shipped
+          </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-10 tracking-tight">Technical Projects</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
@@ -879,14 +1163,14 @@ const App = () => {
               <motion.div 
                 key={project.title} 
                 whileHover={{ y: -5 }}
-                className="group border border-gray-200 dark:border-gray-800 p-6 sm:p-8 rounded-2xl hover:border-black dark:hover:border-white transition-colors bg-white dark:bg-black shadow-sm hover:shadow-xl dark:shadow-none flex flex-col h-full cursor-pointer"
+                className="group border border-gray-200 dark:border-gray-800 p-6 sm:p-8 rounded-2xl hover:border-[#FF3D00] dark:hover:border-[#FF3D00] transition-colors bg-white dark:bg-black shadow-sm hover:shadow-xl dark:shadow-none flex flex-col h-full cursor-pointer"
               >
                 <div className="relative h-40 sm:h-48 bg-gray-100 dark:bg-gray-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden shrink-0">
                   
                   {/* CONDITIONAL RENDERING: Shows Image if URL exists, otherwise shows placeholder */}
                   {project.image ? (
-                    <img 
-                      src={project.image} 
+                    <SmartImage
+                      src={project.image}
                       alt={`${project.title} screenshot`}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
@@ -903,7 +1187,7 @@ const App = () => {
                     href={project.link} 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="inline-flex items-center gap-2 font-bold text-sm hover:underline mt-auto hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                    className="inline-flex items-center gap-2 font-bold text-sm hover:underline mt-auto text-[#FF3D00] hover:text-[#FF7A00] transition-colors"
                   >
                     View Details <ExternalLink size={16} />
                   </a>
@@ -918,7 +1202,12 @@ const App = () => {
       <section id="skills" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <div className="flex items-end justify-between mb-10 gap-4">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Skills &amp; Software</h2>
+            <div>
+              <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-[#FF3D00] mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3D00]" /> 03 — Toolkit
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Skills &amp; Software</h2>
+            </div>
             <span className="hidden sm:block font-mono text-xs text-gray-500 dark:text-gray-500 tracking-widest uppercase">
               Heat check
             </span>
@@ -942,26 +1231,27 @@ const App = () => {
         </motion.div>
       </section>
 
-      
-
       {/* CONTACT SECTION */}
       <section id="contact" className="py-24 sm:py-32 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800 text-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+          <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-[#FF3D00] mb-3 justify-center">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF3D00]" /> 04 — Get in touch
+          </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Let's build something together.</h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto px-4 sm:px-0">
-            Whether it’s a cohesive brand identity, dynamic motion graphics, or a responsive web system to back it up, I’m open for freelance opportunities and creative collaborations.
+            Open for freelance design work, motion projects, and dev collaborations — reach out and let's talk about what you're building.
           </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <a href="mailto:loyddsaquilon@gmail.com" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:scale-110 shadow-sm">
+            <a href="mailto:loyddsaquilon@gmail.com" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:scale-110 shadow-sm">
               <Mail size={24} />
             </a>
-            <a href="https://github.com/loydskie11" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:scale-110 shadow-sm">
+            <a href="https://github.com/loydskie11" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:scale-110 shadow-sm">
               <GithubIcon size={24} />
             </a>
-            <a href="https://facebook.com/laluna.saquilon" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:scale-110 shadow-sm">
+            <a href="https://facebook.com/laluna.saquilon" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:scale-110 shadow-sm">
               <FacebookIcon size={24} />
             </a>
-            <a href="https://instagram.com/flaminghotsisig" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all hover:scale-110 shadow-sm">
+            <a href="https://instagram.com/flaminghotsisig" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:scale-110 shadow-sm">
               <InstagramIcon size={24} />
             </a>
           </div>
