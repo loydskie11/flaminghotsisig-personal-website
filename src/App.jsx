@@ -468,6 +468,13 @@ const projectData = [
     desc: 'For tracking required hours, logging daily tasks, or monitoring attendance, it keeps your data organized and seamlessly accessible across any device.',
     image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1782134495/bot-landscape_bxa7ji.png', 
     link: 'https://github.com/loydskie11/Back-on-Track'
+  },
+  { 
+    title: 'Peened', 
+    stack: 'Chrome Extension (Manifest V3), JavaScript', 
+    desc: 'A frictionless Chrome extension to collect images, text snippets, and creative inspiration into your personal swipe file without losing context.',
+    image: '/peened-preview.jpg', 
+    link: 'https://github.com/loydskie11/peened-chrome-extension'
   }
 ];
 
