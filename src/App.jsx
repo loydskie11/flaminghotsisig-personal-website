@@ -455,6 +455,7 @@ const projectData = [
     image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779804765/Screenshot_2026-05-13_225639_cqmgpd.png',
     link: 'https://github.com/durf-nvn/rag-governance'
   },
+  //this is a comment
   { 
     title: 'Things I Wanted To Say', 
     stack: 'HTML, CSS, JavaScript', 

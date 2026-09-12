@@ -18,7 +18,7 @@
 html {
   scroll-behavior: smooth;
 }
-
+/* this is a comment */
 h1, h2, h3 {
   font-family: var(--font-display);
 }
