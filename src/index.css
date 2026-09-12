@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
 
 /* Manual dark mode toggle for v4 */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -12,13 +12,12 @@
   --color-black: #0a0a0a;
   --color-white: #f5f5f5;
   --color-ember: #FF3D00;
-  --color-ember-light: #FF7A00;
 }
 
 html {
   scroll-behavior: smooth;
 }
-/* this is a comment */
+
 h1, h2, h3 {
   font-family: var(--font-display);
 }

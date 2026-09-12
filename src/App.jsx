@@ -26,11 +26,11 @@ const InstagramIcon = ({ size = 24 }) => (
 
 // Graphic Design Categories & Data
 const graphicCategories = [
-  { id: 'motion', label: 'Motion Graphics', tab: 'MOTION', color: '#A259FF' },
-  { id: 'socmed', label: 'Social Media', tab: 'SOCMED', color: '#FF3D00' },
-  { id: 'personal', label: 'Personal Art', tab: 'PERSONAL', color: '#31A8FF' },
-  { id: 'apparel', label: 'Apparel', tab: 'MERCH', color: '#3ECF8E' },
-  { id: 'others', label: 'Others', tab: 'MISC', color: '#FF9A00' }
+  { id: 'motion', label: 'Motion Graphics', tab: 'MOTION' },
+  { id: 'socmed', label: 'Social Media', tab: 'SOCMED' },
+  { id: 'personal', label: 'Personal Art', tab: 'PERSONAL' },
+  { id: 'apparel', label: 'Apparel', tab: 'MERCH' },
+  { id: 'others', label: 'Others', tab: 'MISC' }
 ];
 
 const graphicData = {
@@ -455,7 +455,6 @@ const projectData = [
     image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779804765/Screenshot_2026-05-13_225639_cqmgpd.png',
     link: 'https://github.com/durf-nvn/rag-governance'
   },
-  //this is a comment
   { 
     title: 'Things I Wanted To Say', 
     stack: 'HTML, CSS, JavaScript', 
@@ -479,36 +478,35 @@ const projectData = [
   }
 ];
 
-// Skills / Software Proficiency — years of hands-on use + a tier label reads as more credible than a bare percentage
+// Skills / Software Proficiency
 const skillGroups = [
   {
     label: 'Design & Motion',
     note: 'Visual craft',
     skills: [
-      { name: 'Canva', years: 5, tier: 'Expert', color: '#00C4CC' },
-      { name: 'Alight Motion', years: 5, tier: 'Expert', color: '#4CD5A8' },
-      { name: 'Photoshop', years: 5, tier: 'Expert', color: '#31A8FF' },
-      { name: 'CapCut Pro', years: 4, tier: 'Advanced', color: '#00F2C3' },
-      { name: 'Figma', years: 3, tier: 'Advanced', color: '#A259FF' },
-      { name: 'Lightroom', years: 2, tier: 'Proficient', color: '#00C8FF' },
-      { name: 'Illustrator', years: 1, tier: 'Proficient', color: '#FF9A00' },
-      { name: 'Premiere Pro', years: 1, tier: 'Proficient', color: '#EA77FF' },
+      { name: 'Canva', years: 5 },
+      { name: 'Alight Motion', years: 5 },
+      { name: 'Photoshop', years: 5 },
+      { name: 'CapCut Pro', years: 4 },
+      { name: 'Figma', years: 3 },
+      { name: 'Lightroom', years: 2 },
+      { name: 'Illustrator', years: 1 },
+      { name: 'Premiere Pro', years: 1 },
     ]
   },
   {
     label: 'Development',
     note: 'Systems & code',
     skills: [
-      { name: 'HTML / CSS / JS', years: 3, tier: 'Advanced', color: '#F0743C' },
-      { name: 'React + Vite', years: 2, tier: 'Advanced', color: '#61DAFB' },
-      { name: 'Supabase', years: 2, tier: 'Proficient', color: '#3ECF8E' },
-      { name: 'React + TypeScript', years: 1, tier: 'Proficient', color: '#3178C6' },
-      { name: 'FastAPI (Python)', years: 1, tier: 'Proficient', color: '#009485' },
-      { name: 'AI / RAG Systems', years: 1, tier: 'Proficient', color: '#FF3D00' },
+      { name: 'HTML / CSS / JS', years: 3 },
+      { name: 'React + Vite', years: 2 },
+      { name: 'Supabase', years: 2 },
+      { name: 'React + TypeScript', years: 1 },
+      { name: 'FastAPI (Python)', years: 1 },
+      { name: 'AI / RAG Systems', years: 1 },
     ]
   }
 ];
-const SKILL_MAX_YEARS = 5;
 
 // Hero showcase — rotates through a few of the strongest Social Media pieces
 const heroShowcase = [
@@ -524,80 +522,18 @@ const SkillBadge = ({ skill, index }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.4, delay: index * 0.04, ease: 'easeOut' }}
-    className="flex items-center gap-4 py-3 border-b border-gray-200 dark:border-gray-800 last:border-b-0"
+    className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-gray-800 last:border-b-0"
   >
-    <span
-      className="w-2.5 h-2.5 rounded-full shrink-0"
-      style={{ backgroundColor: skill.color }}
-    />
-    <span className="text-sm sm:text-base font-semibold flex-1 min-w-0 truncate">
+    <span className="text-sm sm:text-base font-medium">
       {skill.name}
     </span>
-    <div className="flex items-center gap-3 shrink-0">
-      <span className="font-mono text-[10px] sm:text-xs text-gray-400 dark:text-gray-600 hidden sm:inline">
-        {skill.years}+ yr{skill.years > 1 ? 's' : ''}
-      </span>
-      <div className="relative w-20 sm:w-24 h-1.5 rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${Math.min((skill.years / SKILL_MAX_YEARS) * 100, 100)}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: index * 0.04 + 0.1, ease: 'easeOut' }}
-          className="absolute inset-y-0 left-0 rounded-full"
-          style={{ background: `linear-gradient(90deg, ${skill.color}99, ${skill.color})` }}
-        />
-      </div>
-      <span
-        className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wide w-16 sm:w-20 text-right"
-        style={{ color: skill.color }}
-      >
-        {skill.tier}
-      </span>
-    </div>
+    <span className="font-mono text-xs text-gray-400 dark:text-gray-500">
+      {skill.years}+ yr{skill.years > 1 ? 's' : ''}
+    </span>
   </motion.div>
 );
 
 // Image with a skeleton/blur-up loading state — avoids grid jump while Cloudinary assets load
-// One-time type-in animation for the nav logo, with a blinking cursor that fades once done
-const TypeIn = ({ text, className = '', speed = 0.045, startDelay = 0.2 }) => {
-  const [done, setDone] = useState(false);
-  const reduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  useEffect(() => {
-    if (reduceMotion) { setDone(true); return; }
-    const t = setTimeout(() => setDone(true), (startDelay + text.length * speed) * 1000);
-    return () => clearTimeout(t);
-  }, [text, speed, startDelay, reduceMotion]);
-
-  if (reduceMotion) {
-    return <span className={className}>{text}</span>;
-  }
-
-  return (
-    <span className={className} aria-label={text}>
-      <span aria-hidden="true">
-        {text.split('').map((char, i) => (
-          <motion.span
-            key={i}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.01, delay: startDelay + i * speed }}
-            style={{ display: 'inline-block' }}
-          >
-            {char}
-          </motion.span>
-        ))}
-        <motion.span
-          initial={{ opacity: 1 }}
-          animate={{ opacity: done ? 0 : [1, 0] }}
-          transition={done ? { duration: 0.4 } : { duration: 0.6, repeat: Infinity, repeatType: 'reverse' }}
-          className="inline-block w-[2px] h-[0.9em] ml-0.5 -mb-0.5 bg-current"
-        />
-      </span>
-    </span>
-  );
-};
-
 const SmartImage = ({ src, alt, className = '' }) => {
   const [loaded, setLoaded] = useState(false);
   return (
@@ -768,7 +704,7 @@ const HeroShowcase = ({ items, onOpen }) => {
           >
             <span
               className={`block rounded-full transition-all duration-300 ${
-                i === index ? 'w-6 h-1.5 bg-gradient-to-r from-[#FF3D00] to-[#FF7A00]' : 'w-1.5 h-1.5 bg-gray-300 dark:bg-gray-700'
+                i === index ? 'w-6 h-1.5 bg-[#FF3D00]' : 'w-1.5 h-1.5 bg-gray-400 dark:bg-gray-600'
               }`}
             />
           </button>
@@ -849,7 +785,7 @@ const App = () => {
             }}
             className="text-xl font-bold tracking-tighter z-50 cursor-pointer hover:text-gray-500 transition-colors"
           >
-            <TypeIn text="flaminghotsisig." />
+            flaminghotsisig.
           </a>
           
           {/* Desktop Navigation */}
@@ -892,7 +828,7 @@ const App = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-full left-0 w-full h-screen bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 md:hidden flex flex-col pt-8 px-6 gap-6 text-2xl font-bold z-40"
+              className="absolute top-full left-0 w-full h-screen bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 md:hidden flex flex-col pt-8 px-6 gap-6 text-2xl font-bold z-40 overflow-y-auto"
             >
               {navLinks.map((link) => (
                 <a 
@@ -914,17 +850,16 @@ const App = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="max-w-2xl lg:flex-1">
             <span className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm tracking-widest uppercase text-gray-500 dark:text-gray-500 mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#FF3D00] to-[#FF7A00]" />
               Graphic &amp; Motion Designer — Argao, Cebu, PH
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
-              Designing visuals. <br /> Coding <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF3D00] to-[#FF7A00]">logic</span>.
+              Designing visuals. <br /> Coding <span className="text-[#FF3D00]">logic</span>.
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
               I'm Jhon Lyod L. Saquilon — a designer first, crafting visual identities and motion work, then building the responsive systems that put them online.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="bg-gradient-to-r from-[#FF3D00] to-[#FF7A00] text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-[#FF3D00]/20 text-sm sm:text-base text-center flex-1 sm:flex-none">
+              <a href="#contact" className="bg-[#FF3D00] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#e63600] transition-colors text-sm sm:text-base text-center flex-1 sm:flex-none">
                 Let's Talk
               </a>
               <a href="/Jhon_Lyod_Saquilon_Resume.pdf" 
@@ -949,7 +884,7 @@ const App = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <div className="mb-10">
             <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-[#FF3D00] mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF3D00]" /> 01 — Portfolio
+              01 — Portfolio
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Graphic Design Showcase</h2>
             <p className="text-sm sm:text-base text-gray-500 dark:text-gray-500">
@@ -981,20 +916,17 @@ const App = () => {
                   >
                     {/* Folder tab */}
                     <div
-                      className="h-4 w-14 rounded-t-lg -mb-1 ml-2 transition-transform duration-300 group-hover:-translate-y-0.5"
-                      style={{ backgroundColor: cat.color }}
+                      className="h-4 w-14 rounded-t-lg -mb-1 ml-2 transition-transform duration-300 group-hover:-translate-y-0.5 bg-[#FF3D00]"
                     />
                     {/* Folder body */}
                     <div
-                      className="relative aspect-[4/3] rounded-2xl rounded-tl-none flex flex-col justify-between p-4 sm:p-5 shadow-sm group-hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-800 overflow-hidden"
-                      style={{ backgroundColor: 'color-mix(in srgb, ' + cat.color + ' 12%, transparent)' }}
+                      className="relative aspect-[4/3] rounded-2xl rounded-tl-none flex flex-col justify-between p-4 sm:p-5 shadow-sm group-hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-gray-900/50"
                     >
                       <div className="flex items-start justify-between">
                         <Folder
                           size={32}
                           strokeWidth={1.5}
-                          style={{ color: cat.color }}
-                          className="transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
+                          className="text-[#FF3D00] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
                         />
                         <span className="font-mono text-[10px] sm:text-xs text-gray-400 dark:text-gray-600">
                           {String(graphicData[cat.id].length).padStart(2, '0')}
@@ -1028,10 +960,6 @@ const App = () => {
                     className="flex items-center gap-2 font-bold text-sm sm:text-base hover:text-gray-500 transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00] rounded-md"
                   >
                     <ArrowLeft size={18} />
-                    <span
-                      className="w-2.5 h-2.5 rounded-full"
-                      style={{ backgroundColor: graphicCategories.find((c) => c.id === activeTab)?.color }}
-                    />
                     {graphicCategories.find((c) => c.id === activeTab)?.label}
                     <span className="font-mono text-xs text-gray-400 dark:text-gray-600 font-normal">
                       ({graphicData[activeTab].length})
@@ -1112,7 +1040,7 @@ const App = () => {
                         )}
                                             
                         {/* Hover Title Overlay */}
-                        <div className="absolute bottom-0 left-0 w-full pt-16 pb-4 px-5 bg-gradient-to-t from-black/90 via-black/50 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20 pointer-events-none">
+                        <div className="absolute bottom-0 left-0 w-full pt-16 pb-4 px-5 bg-gradient-to-t from-black/70 via-black/20 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20 pointer-events-none">
                           <span className="text-white font-bold tracking-wider text-sm sm:text-base drop-shadow-md">
                             {item.title}
                           </span>
@@ -1132,7 +1060,7 @@ const App = () => {
                   >
                     <button
                       onClick={() => setVisibleCount((prev) => prev + 6)}
-                      className="px-8 py-3 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 text-black dark:text-white font-bold rounded-full transition-colors border border-gray-200 dark:border-gray-800 shadow-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00]"
+                      className="border border-black dark:border-white px-8 py-3 rounded-xl font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-sm sm:text-base cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF3D00]"
                     >
                       Load More Designs
                     </button>
@@ -1162,16 +1090,19 @@ const App = () => {
       <section id="projects" className="py-20 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-[#FF3D00] mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FF3D00]" /> 02 — Built &amp; shipped
+            02 — Built &amp; shipped
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-10 tracking-tight">Technical Projects</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {projectData.map((project) => (
-              <motion.div 
+              <motion.a 
                 key={project.title} 
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
                 whileHover={{ y: -5 }}
-                className="group border border-gray-200 dark:border-gray-800 p-6 sm:p-8 rounded-2xl hover:border-[#FF3D00] dark:hover:border-[#FF3D00] transition-colors bg-white dark:bg-black shadow-sm hover:shadow-xl dark:shadow-none flex flex-col h-full cursor-pointer"
+                className="group border border-gray-200 dark:border-gray-800 p-6 sm:p-8 rounded-2xl hover:border-gray-400 dark:hover:border-gray-600 transition-colors bg-white dark:bg-black shadow-sm hover:shadow-xl dark:shadow-none flex flex-col h-full cursor-pointer no-underline text-inherit"
               >
                 <div className="relative h-40 sm:h-48 bg-gray-100 dark:bg-gray-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden shrink-0">
                   
@@ -1190,17 +1121,10 @@ const App = () => {
                 <h3 className="text-lg sm:text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-500 mb-4 font-mono">{project.stack}</p>
                 <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm flex-grow">{project.desc}</p>
-                {project.link && (
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="inline-flex items-center gap-2 font-bold text-sm hover:underline mt-auto text-[#FF3D00] hover:text-[#FF7A00] transition-colors"
-                  >
-                    View Details <ExternalLink size={16} />
-                  </a>
-                )}
-              </motion.div>
+                <span className="inline-flex items-center gap-2 font-bold text-sm mt-auto text-[#FF3D00]">
+                  View on GitHub <ExternalLink size={16} />
+                </span>
+              </motion.a>
             ))}
           </div>
         </motion.div>
@@ -1212,13 +1136,10 @@ const App = () => {
           <div className="flex items-end justify-between mb-10 gap-4">
             <div>
               <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-[#FF3D00] mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3D00]" /> 03 — Toolkit
+                03 — Toolkit
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Skills &amp; Software</h2>
             </div>
-            <span className="hidden sm:block font-mono text-xs text-gray-500 dark:text-gray-500 tracking-widest uppercase">
-              Heat check
-            </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12">
@@ -1243,23 +1164,23 @@ const App = () => {
       <section id="contact" className="py-24 sm:py-32 px-4 md:px-6 max-w-6xl mx-auto border-t border-gray-200 dark:border-gray-800 text-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
           <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-[#FF3D00] mb-3 justify-center">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FF3D00]" /> 04 — Get in touch
+            04 — Get in touch
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Let's build something together.</h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto px-4 sm:px-0">
             Open for freelance design work, motion projects, and dev collaborations — reach out and let's talk about what you're building.
           </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <a href="mailto:loyddsaquilon@gmail.com" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:scale-110 shadow-sm">
+            <a href="mailto:loyddsaquilon@gmail.com" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:-translate-y-1 shadow-sm">
               <Mail size={24} />
             </a>
-            <a href="https://github.com/loydskie11" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:scale-110 shadow-sm">
+            <a href="https://github.com/loydskie11" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:-translate-y-1 shadow-sm">
               <GithubIcon size={24} />
             </a>
-            <a href="https://facebook.com/laluna.saquilon" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:scale-110 shadow-sm">
+            <a href="https://facebook.com/laluna.saquilon" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:-translate-y-1 shadow-sm">
               <FacebookIcon size={24} />
             </a>
-            <a href="https://instagram.com/flaminghotsisig" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:scale-110 shadow-sm">
+            <a href="https://instagram.com/flaminghotsisig" target="_blank" rel="noreferrer" className="p-3 sm:p-4 border border-gray-200 dark:border-gray-800 rounded-2xl hover:bg-[#FF3D00] hover:border-[#FF3D00] hover:text-white transition-all hover:-translate-y-1 shadow-sm">
               <InstagramIcon size={24} />
             </a>
           </div>
