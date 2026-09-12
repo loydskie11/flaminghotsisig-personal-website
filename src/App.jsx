@@ -795,6 +795,14 @@ const App = () => {
                 {link.name}
               </a>
             ))}
+            <a 
+              href="/Jhon_Lyod_Saquilon_Resume.pdf" 
+              target="_blank" 
+              rel="noreferrer"
+              className="px-4 py-1.5 text-xs font-bold border border-black dark:border-white rounded-lg hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+            >
+              Resume
+            </a>
             <button 
               onClick={() => setIsDarkMode(!isDarkMode)}
               className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer"
@@ -840,6 +848,15 @@ const App = () => {
                   {link.name}
                 </a>
               ))}
+              <a 
+                href="/Jhon_Lyod_Saquilon_Resume.pdf" 
+                target="_blank" 
+                rel="noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="hover:text-gray-500 transition-colors border-b border-gray-100 dark:border-gray-900 pb-4"
+              >
+                View Resume
+              </a>
             </motion.div>
           )}
         </AnimatePresence>
