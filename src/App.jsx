@@ -799,9 +799,9 @@ const App = () => {
               href="/Jhon_Lyod_Saquilon_Resume.pdf" 
               target="_blank" 
               rel="noreferrer"
-              className="px-4 py-1.5 text-xs font-bold border border-black dark:border-white rounded-lg hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+              className="hover:text-gray-500 transition-colors flex items-center gap-1"
             >
-              Resume
+              Resume <ExternalLink size={14} />
             </a>
             <button 
               onClick={() => setIsDarkMode(!isDarkMode)}
@@ -853,9 +853,9 @@ const App = () => {
                 target="_blank" 
                 rel="noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-gray-500 transition-colors border-b border-gray-100 dark:border-gray-900 pb-4"
+                className="hover:text-gray-500 transition-colors border-b border-gray-100 dark:border-gray-900 pb-4 flex items-center gap-2"
               >
-                View Resume
+                Resume <ExternalLink size={20} />
               </a>
             </motion.div>
           )}
