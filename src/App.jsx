@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Mail, ExternalLink, Image as ImageIcon, Menu, X, Volume2, VolumeX, Folder, ArrowLeft } from 'lucide-react';
+import { Moon, Sun, Mail, ExternalLink, ArrowUpRight, Image as ImageIcon, Menu, X, Volume2, VolumeX, Folder, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Analytics } from "@vercel/analytics/react"
 
@@ -801,7 +801,7 @@ const App = () => {
               rel="noreferrer"
               className="hover:text-gray-500 transition-colors flex items-center gap-1"
             >
-              Resume <ExternalLink size={14} />
+              Resume <ArrowUpRight size={16} />
             </a>
             <button 
               onClick={() => setIsDarkMode(!isDarkMode)}
@@ -855,7 +855,7 @@ const App = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="hover:text-gray-500 transition-colors border-b border-gray-100 dark:border-gray-900 pb-4 flex items-center gap-2"
               >
-                Resume <ExternalLink size={20} />
+                Resume <ArrowUpRight size={22} />
               </a>
             </motion.div>
           )}
@@ -882,8 +882,9 @@ const App = () => {
               <a href="/Jhon_Lyod_Saquilon_Resume.pdf" 
               target="_blank" 
               rel="noreferrer"
-              className="border border-black dark:border-white px-6 py-3 rounded-xl font-bold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-sm sm:text-base text-center flex-1 sm:flex-none">
-                View Resume
+              className="flex items-center justify-center gap-2 font-bold hover:text-gray-500 transition-colors text-sm sm:text-base flex-1 sm:flex-none py-3"
+              >
+                View Resume <ArrowUpRight size={18} />
               </a>
             </div>
           </motion.div>
