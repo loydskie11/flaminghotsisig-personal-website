@@ -453,7 +453,7 @@ const projectData = [
     stack: 'FastAPI, Supabase, React',
     desc: 'An AI-driven platform built for quality assurance and academic governance.',
     image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1779804765/Screenshot_2026-05-13_225639_cqmgpd.png',
-    link: 'https://github.com/durf-nvn/rag-governance'
+    link: 'https://github.com/loydskie11/rag-knowledge-system'
   },
   { 
     title: 'Things I Wanted To Say', 
@@ -473,7 +473,7 @@ const projectData = [
     title: 'Peened', 
     stack: 'Chrome Extension (Manifest V3), JavaScript', 
     desc: 'A frictionless Chrome extension to collect images, text snippets, and creative inspiration into your personal swipe file without losing context.',
-    image: '/peened-preview.jpg', 
+    image: 'https://res.cloudinary.com/dtnfvmzrd/image/upload/v1788671685/peened-bg_h7exon.png', 
     link: 'https://github.com/loydskie11/peened-chrome-extension'
   }
 ];
